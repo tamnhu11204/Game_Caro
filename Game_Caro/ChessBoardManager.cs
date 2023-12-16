@@ -83,6 +83,7 @@ namespace Game_Caro
                 endedGame -= value;
             }
         }
+        private Stack<PlayInfo> playTimeLine;
         #endregion
 
         #region Initialize
@@ -97,7 +98,7 @@ namespace Game_Caro
                 new Player("Player1", Properties.Resources.IconX),
                 new Player("Player2", Properties.Resources.IconO)
             };
-
+            playTimeLine = new Stack<PlayInfo>();
             CurrentPlayer = 0;
 
             ChangePlayer();
@@ -108,7 +109,7 @@ namespace Game_Caro
         public void DrawChessBoard()
         {
             ChessBoard.Enabled = true;
-            ChessBoard.Controls.Clear();            
+            ChessBoard.Controls.Clear();
             Matrix = new List<List<Button>>();
             Button oldButton = new Button() { Width = 0, Location = new Point(0, 0) };
             for (int i = 0; i < Const.chessBoardHeight; i++)
@@ -141,6 +142,12 @@ namespace Game_Caro
             if (btn.BackgroundImage != null)
                 return;
             Piece(btn);
+
+            playTimeLine.Push(new PlayInfo(GetChessPoint(btn), currentPlayer));
+
+            CurrentPlayer= CurrentPlayer ==1 ? 0 : 1;
+
+
             ChangePlayer();
             if (playerMarked != null)
                 playerMarked(this, new EventArgs());
@@ -153,7 +160,8 @@ namespace Game_Caro
         private void Piece(Button btn)
         {
             btn.BackgroundImage = Player[CurrentPlayer].Piece;
-            CurrentPlayer = CurrentPlayer == 1 ? 0 : 1;
+
+
         }
 
         private void ChangePlayer()
@@ -167,6 +175,32 @@ namespace Game_Caro
                 endedGame(this, new EventArgs());
         }
 
+        public bool Undo()
+        {
+            if (playTimeLine.Count<=0)
+                return false;
+            PlayInfo oldPoint = playTimeLine.Pop();
+            Button btn = Matrix[oldPoint.Point.Y][oldPoint.Point.X];
+
+            btn.BackgroundImage = null;
+
+
+
+
+            if (playTimeLine.Count<=0)
+            {
+
+                currentPlayer = 0;
+            }
+            else
+            {
+                oldPoint= playTimeLine.Peek();
+                currentPlayer=oldPoint.CurrentPlayer ==1 ? 0 : 1;
+            }
+
+            ChangePlayer();
+            return true;
+        }
         private bool isEndGame(Button btn)
         {
             return isEndHorizontal(btn) || isEndVertical(btn) || isEndPrimary(btn) || isEndSub(btn);
