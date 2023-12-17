@@ -42,13 +42,10 @@
             // 
             // pcb_SignUp1
             // 
-<<<<<<< HEAD
             this.pcb_SignUp1.Image = global::Game_Caro.Properties.Resources.background_SignUp;
             this.pcb_SignUp1.Location = new System.Drawing.Point(9, 5);
-=======
             this.pcb_SignUp1.Location = new System.Drawing.Point(6, 3);
             this.pcb_SignUp1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
->>>>>>> 546c23b04f40a70d5ff97fa8f40497c7609fbc69
             this.pcb_SignUp1.Name = "pcb_SignUp1";
             this.pcb_SignUp1.Size = new System.Drawing.Size(522, 285);
             this.pcb_SignUp1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
