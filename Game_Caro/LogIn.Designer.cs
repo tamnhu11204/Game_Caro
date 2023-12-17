@@ -54,7 +54,7 @@
             this.pnl_LogIn.Controls.Add(this.lb_LogIn);
             this.pnl_LogIn.Controls.Add(this.pcb_LogIn);
             this.pnl_LogIn.Location = new System.Drawing.Point(225, 3);
-            this.pnl_LogIn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_LogIn.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_LogIn.Name = "pnl_LogIn";
             this.pnl_LogIn.Size = new System.Drawing.Size(317, 310);
             this.pnl_LogIn.TabIndex = 1;
@@ -63,7 +63,7 @@
             // 
             this.btn_LogIn.BackColor = System.Drawing.Color.Pink;
             this.btn_LogIn.Location = new System.Drawing.Point(119, 127);
-            this.btn_LogIn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_LogIn.Margin = new System.Windows.Forms.Padding(2);
             this.btn_LogIn.Name = "btn_LogIn";
             this.btn_LogIn.Size = new System.Drawing.Size(68, 29);
             this.btn_LogIn.TabIndex = 5;
@@ -74,7 +74,7 @@
             // txb_Password
             // 
             this.txb_Password.Location = new System.Drawing.Point(110, 90);
-            this.txb_Password.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txb_Password.Margin = new System.Windows.Forms.Padding(2);
             this.txb_Password.Name = "txb_Password";
             this.txb_Password.Size = new System.Drawing.Size(147, 20);
             this.txb_Password.TabIndex = 4;
@@ -82,7 +82,7 @@
             // txb_Username
             // 
             this.txb_Username.Location = new System.Drawing.Point(110, 57);
-            this.txb_Username.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txb_Username.Margin = new System.Windows.Forms.Padding(2);
             this.txb_Username.Name = "txb_Username";
             this.txb_Username.Size = new System.Drawing.Size(147, 20);
             this.txb_Username.TabIndex = 3;
@@ -113,7 +113,7 @@
             // 
             this.pcb_LogIn.Image = global::Game_Caro.Properties.Resources.background_SignUp;
             this.pcb_LogIn.Location = new System.Drawing.Point(2, -1);
-            this.pcb_LogIn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pcb_LogIn.Margin = new System.Windows.Forms.Padding(2);
             this.pcb_LogIn.Name = "pcb_LogIn";
             this.pcb_LogIn.Size = new System.Drawing.Size(315, 311);
             this.pcb_LogIn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -126,7 +126,7 @@
             this.pnl_SignUp.Controls.Add(this.pcb_SignUp);
             this.pnl_SignUp.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnl_SignUp.Location = new System.Drawing.Point(0, 0);
-            this.pnl_SignUp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_SignUp.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_SignUp.Name = "pnl_SignUp";
             this.pnl_SignUp.Size = new System.Drawing.Size(221, 315);
             this.pnl_SignUp.TabIndex = 0;
@@ -135,7 +135,7 @@
             // 
             this.btn_SignUp.BackColor = System.Drawing.Color.Pink;
             this.btn_SignUp.Location = new System.Drawing.Point(74, 131);
-            this.btn_SignUp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_SignUp.Margin = new System.Windows.Forms.Padding(2);
             this.btn_SignUp.Name = "btn_SignUp";
             this.btn_SignUp.Size = new System.Drawing.Size(68, 29);
             this.btn_SignUp.TabIndex = 1;
@@ -147,7 +147,7 @@
             // 
             this.pcb_SignUp.Image = global::Game_Caro.Properties.Resources.background_SignUp;
             this.pcb_SignUp.Location = new System.Drawing.Point(0, 2);
-            this.pcb_SignUp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pcb_SignUp.Margin = new System.Windows.Forms.Padding(2);
             this.pcb_SignUp.Name = "pcb_SignUp";
             this.pcb_SignUp.Size = new System.Drawing.Size(221, 311);
             this.pcb_SignUp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -162,7 +162,7 @@
             this.Controls.Add(this.pnl_LogIn);
             this.Controls.Add(this.pnl_SignUp);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "LogIn";
             this.Text = "LogIn";
             this.pnl_LogIn.ResumeLayout(false);

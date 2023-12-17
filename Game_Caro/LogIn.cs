@@ -30,8 +30,8 @@ namespace Game_Caro
         private void btn_LogIn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Game_Caro game_Caro = new Game_Caro();
-            game_Caro.ShowDialog();
+            Home home = new Home();
+            home.ShowDialog();
             this.Close();
         }
 
