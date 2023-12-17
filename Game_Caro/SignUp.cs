@@ -16,5 +16,13 @@ namespace Game_Caro
         {
             InitializeComponent();
         }
+
+        private void btn_SignUp1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LogIn logIn = new LogIn();
+            logIn.ShowDialog();
+            this.Close();
+        }
     }
 }
