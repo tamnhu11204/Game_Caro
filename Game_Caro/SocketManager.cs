@@ -15,7 +15,7 @@ namespace GameCaro
     public class SocketManager
     {
         #region Client
-        Socket client;
+        Socket client; 
         public bool ConnectServer()
         {
             IPEndPoint iep = new IPEndPoint(IPAddress.Parse(IP), PORT);
@@ -23,7 +23,7 @@ namespace GameCaro
 
             try
             {
-                client.Connect(iep);
+                client.Connect(iep);//kết nối với server
                 return true;
             }
             catch
@@ -42,7 +42,7 @@ namespace GameCaro
             server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
             server.Bind(iep);
-            server.Listen(10);
+            server.Listen(10);//quá 10s thì bỏ
 
             Thread acceptClient = new Thread(() =>
             {
@@ -59,6 +59,7 @@ namespace GameCaro
         public const int BUFFER = 1024;
         public bool isServer = true;
 
+        //Hàm gửi tin
         public bool Send(object data)
         {
             byte[] sendData = SerializeData(data);
@@ -66,6 +67,7 @@ namespace GameCaro
             return SendData(client, sendData);
         }
 
+        //Hàm nhận tin
         public object Receive()
         {
             byte[] receiveData = new byte[BUFFER];
