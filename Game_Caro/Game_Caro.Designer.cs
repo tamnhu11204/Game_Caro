@@ -72,11 +72,10 @@
             // 
             // picb_Logo
             // 
+            this.picb_Logo.Image = global::Game_Caro.Properties.Resources.LogoCaro;
             this.picb_Logo.Location = new System.Drawing.Point(0, 0);
             this.picb_Logo.Name = "picb_Logo";
-
-            this.picb_Logo.Size = new System.Drawing.Size(302, 277);
-            this.picb_Logo.Size = new System.Drawing.Size(201, 181);
+            this.picb_Logo.Size = new System.Drawing.Size(299, 280);
             this.picb_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picb_Logo.TabIndex = 0;
             this.picb_Logo.TabStop = false;
@@ -147,7 +146,6 @@
             this.menuToolStripMenuItem});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
-            this.menu.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
             this.menu.Size = new System.Drawing.Size(1034, 33);
             this.menu.TabIndex = 3;
             this.menu.Text = "menuStrip1";
