@@ -1,10 +1,14 @@
-﻿using System;
+﻿using GameCaro;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,6 +18,8 @@ namespace Game_Caro
     {
         #region Properties
         ChessBoardManager ChessBoard;
+
+        SocketManager socket;
         #endregion
         public Game_Caro()
         {
@@ -26,10 +32,13 @@ namespace Game_Caro
             progressBar.Maximum = Const.countDownTime;
             timerCountDown.Interval = Const.countDownInterval;
 
+            socket = new SocketManager();
             NewGame();
 
 
         }
+
+        #region Methods
         void EndGame()
         {
             timerCountDown.Stop();
@@ -89,5 +98,63 @@ namespace Game_Caro
             Quit();
         }
 
+        private void btn_Connect_Click(object sender, EventArgs e)
+        {
+            socket.IP = txbIP.Text;
+
+            if (!socket.ConnectServer())
+            {
+                socket.CreateServer();
+
+                Thread listenThread = new Thread(() =>
+                {
+                    while (true)
+                    {
+                        Thread.Sleep(500);
+                        try
+                        {
+                            Listen();
+                            break;
+                        }
+                        catch
+                        {
+
+                        }
+                    }
+                });
+                listenThread.IsBackground = true;
+                listenThread.Start();
+            }
+            else
+            {
+                Thread listenThread = new Thread(() =>
+                {
+                    Listen();
+                });
+                listenThread.IsBackground = true;
+                listenThread.Start();
+
+                socket.Send("Thông tin từ Client");
+            }
+
+        }
+
+        private void Game_Caro_Shown(object sender, EventArgs e)
+        {
+            txbIP.Text = socket.GetLocalIPv4(NetworkInterfaceType.Wireless80211);
+            if (string.IsNullOrEmpty(txbIP.Text))
+            {
+                txbIP.Text = socket.GetLocalIPv4(NetworkInterfaceType.Ethernet);
+            }
+        }
+
+        void Listen()
+        {
+            string data = (string)socket.Receive();
+
+            MessageBox.Show(data);
+        }
+
+        #endregion
     }
 }
