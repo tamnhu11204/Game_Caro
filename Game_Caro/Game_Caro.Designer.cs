@@ -74,7 +74,9 @@
             // 
             this.picb_Logo.Location = new System.Drawing.Point(0, 0);
             this.picb_Logo.Name = "picb_Logo";
+
             this.picb_Logo.Size = new System.Drawing.Size(302, 277);
+            this.picb_Logo.Size = new System.Drawing.Size(201, 181);
             this.picb_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picb_Logo.TabIndex = 0;
             this.picb_Logo.TabStop = false;
