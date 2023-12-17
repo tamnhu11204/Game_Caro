@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -200,8 +201,23 @@ namespace Game_Caro
 
         public bool Undo()
         {
-            if (playTimeLine.Count<=0)
+            if (playTimeLine.Count <= 0)
                 return false;
+
+            PlayInfo oldPoint = playTimeLine.Peek();
+
+            bool IsUndo1 = UndoAsStep();
+            bool IsUndo2 = UndoAsStep();
+            
+            currentPlayer = oldPoint.CurrentPlayer == 1 ? 0 : 1;
+            return IsUndo1 && IsUndo2;
+        }
+
+        private bool UndoAsStep()
+        {
+            if (playTimeLine.Count <= 0)
+                return false;
+
             PlayInfo oldPoint = playTimeLine.Pop();
             Button btn = Matrix[oldPoint.Point.Y][oldPoint.Point.X];
 
@@ -210,20 +226,21 @@ namespace Game_Caro
 
 
 
-            if (playTimeLine.Count<=0)
+            if (playTimeLine.Count <= 0)
             {
 
                 currentPlayer = 0;
             }
             else
             {
-                oldPoint= playTimeLine.Peek();
-                currentPlayer=oldPoint.CurrentPlayer ==1 ? 0 : 1;
+                oldPoint = playTimeLine.Peek();
+                
             }
 
             ChangePlayer();
             return true;
         }
+
         private bool isEndGame(Button btn)
         {
             return isEndHorizontal(btn) || isEndVertical(btn) || isEndPrimary(btn) || isEndSub(btn);
@@ -295,6 +312,8 @@ namespace Game_Caro
 
             return countTop + countBottom == 5;
         }
+
+
         private bool isEndPrimary(Button btn)
         {
             Point point = GetChessPoint(btn);
@@ -329,6 +348,8 @@ namespace Game_Caro
 
             return countTop + countBottom == 5;
         }
+
+
         private bool isEndSub(Button btn)
         {
             Point point = GetChessPoint(btn);
