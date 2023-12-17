@@ -42,6 +42,7 @@
             // 
             // pcb_SignUp1
             // 
+            this.pcb_SignUp1.Image = global::Game_Caro.Properties.Resources.background_SignUp;
             this.pcb_SignUp1.Location = new System.Drawing.Point(9, 5);
             this.pcb_SignUp1.Name = "pcb_SignUp1";
             this.pcb_SignUp1.Size = new System.Drawing.Size(783, 438);
