@@ -32,6 +32,7 @@ namespace Game_Caro
 
             progressBar.Step = Const.countDownStep;
             progressBar.Maximum = Const.countDownTime;
+            progressBar.Value = 0;
             timerCountDown.Interval = Const.countDownInterval;
 
             socket = new SocketManager();

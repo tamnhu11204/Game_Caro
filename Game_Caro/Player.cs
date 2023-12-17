@@ -17,18 +17,18 @@ namespace Game_Caro
             set { name = value; }
         }
 
-        private Image piece;
+        private Image mark;
 
-        public Image Piece
+        public Image Mark
         {
-            get { return piece; }
-            set { piece = value; }
+            get { return mark; }
+            set { mark = value; }
         }
 
-        public Player(string name, Image piece)
+        public Player(string name, Image mark)
         {
             this.Name = name;
-            this.Piece = piece;
+            this.Mark = mark;
         }
     }
 }
