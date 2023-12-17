@@ -24,6 +24,8 @@ namespace Game_Caro
         public Game_Caro()
         {
             InitializeComponent();
+
+            Control.CheckForIllegalCrossThreadCalls = false;
             ChessBoard = new ChessBoardManager(pnl_ChessBoard, txtb_Player, picb_IconXO);
             ChessBoard.EndedGame += ChessBoard_EndedGame;
             ChessBoard.PlayerMarked += ChessBoard_PlayerMarked;
@@ -46,10 +48,13 @@ namespace Game_Caro
             undoToolStripMenuItem.Enabled = false;
             MessageBox.Show("End game!!!");
         }
-        void ChessBoard_PlayerMarked(object sender, EventArgs e)
+        void ChessBoard_PlayerMarked(object sender,ButtonCLickEvent e)
         {
             timerCountDown.Start();
+            pnl_ChessBoard.Enabled=false;
             progressBar.Value = 0;
+            socket.Send(new SocketData((int)SocketCommand.SEND_POINT,"", e.CLickedPoint));
+            Listen();
         }
         void ChessBoard_EndedGame(object sender, EventArgs e)
         {
@@ -104,37 +109,17 @@ namespace Game_Caro
 
             if (!socket.ConnectServer())
             {
+                socket.isServer = true;
+                pnl_ChessBoard.Enabled = true;
                 socket.CreateServer();
 
-                Thread listenThread = new Thread(() =>
-                {
-                    while (true)
-                    {
-                        Thread.Sleep(500);
-                        try
-                        {
-                            Listen();
-                            break;
-                        }
-                        catch
-                        {
-
-                        }
-                    }
-                });
-                listenThread.IsBackground = true;
-                listenThread.Start();
+                
             }
             else
             {
-                Thread listenThread = new Thread(() =>
-                {
-                    Listen();
-                });
-                listenThread.IsBackground = true;
-                listenThread.Start();
-
-                socket.Send("Thông tin từ Client");
+                socket.isServer = false;
+                pnl_ChessBoard.Enabled= false;
+                Listen();
             }
 
         }
@@ -150,11 +135,69 @@ namespace Game_Caro
 
         void Listen()
         {
-            string data = (string)socket.Receive();
 
-            MessageBox.Show(data);
+            Thread listenThread = new Thread(() =>
+            {
+                try
+                {
+                    SocketData data = (SocketData)socket.Receive();
+                    ProcessData(data);
+                }
+                catch(Exception e)
+                {
+                   
+                };
+            });
+
+            listenThread.IsBackground= true;
+            listenThread.Start();
         }
+    
 
+        private void ProcessData(SocketData data)
+        {
+            switch(data.Command)
+            {
+                case (int)SocketCommand.NOTIFY:
+                    MessageBox.Show(data.Message);
+                    break;
+
+                case (int)SocketCommand.NEW_GAME:
+                    break;
+
+                case (int)SocketCommand.SEND_POINT:
+                    this.Invoke((MethodInvoker)(() =>
+                    {
+                        progressBar.Value =0;
+                        progressBar.Enabled = true;
+                        timerCountDown.Start();
+                        ChessBoard.OtherPlayerMark(data.Point);
+                    }));
+                    break;
+
+                case (int)SocketCommand.UNDO:
+                    break;
+
+                case (int)SocketCommand.END_GAME:
+                    break;
+
+                case (int)SocketCommand.QUIT:
+                    break;
+
+                default:
+                    break;
+            }
+
+            Listen();
+        }
         #endregion
+
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Home home = new Home();
+            home.ShowDialog();
+            this.Close();
+        }
     }
 }
