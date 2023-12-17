@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Game_Caro
 {
@@ -29,25 +30,17 @@ namespace Game_Caro
             con.Close();
             return dt;
         }
-        public string AutoID()
-        {
-            return ("select concat ('P',right(concat('000000',isnull(right(max(ID),5),0)+1),5))\r\nfrom PLAYER where ID like 'P%'").ToString();
-        }
         public bool InsertPlayer(tbPlayer player)
         {
             
-            string sqlStr = @"insert into PLAYER values(@ID,@USERNAME,@PASSWORD,@WIN,@LOSE)";
+            string sqlStr = @"insert into PLAYER(USERNAME,PASSWORDS,WIN,LOSE) values (@USERNAME,@PASSWORDS,@WIN,@LOSE)";
             SqlConnection con=dc.getConnect();
-            player.ID=AutoID();
-            player.Win = 0;
-            player.Lose = 0;
             try
             {
                 cmd = new SqlCommand(sqlStr, con);
                 con.Open();
-                cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = player.ID;
                 cmd.Parameters.Add("@USERNAME", SqlDbType.VarChar).Value = player.Username;
-                cmd.Parameters.Add("@PASSWORD", SqlDbType.VarChar).Value = player.Password;
+                cmd.Parameters.Add("@PASSWORDS", SqlDbType.VarChar).Value = player.Password;
                 cmd.Parameters.Add("@WIN", SqlDbType.Int).Value = player.Win;
                 cmd.Parameters.Add("@LOSE", SqlDbType.VarChar).Value = player.Lose;
                 cmd.ExecuteNonQuery();
@@ -58,6 +51,24 @@ namespace Game_Caro
                 return false;
             }
             return true;
+        }
+
+        public bool CheckPassword(string x, string y)
+        {
+            string sqlStr = "select * from PLAYER where USERNAME=@USERNAME and PASSWORDS=@PASSWORD";
+            SqlConnection con=dc.getConnect();
+            cmd = new SqlCommand(sqlStr, con);
+            con.Open();
+            cmd.Parameters.AddWithValue("@USERNAME", x);
+            cmd.Parameters.AddWithValue("@PASSWORDS", y);
+            SqlDataReader dr = cmd.ExecuteReader();
+            cmd.ExecuteNonQuery();
+            con.Close();
+            if (dr.HasRows)
+            {
+                return true;
+            }
+            else { return false; }
         }
     }
 }

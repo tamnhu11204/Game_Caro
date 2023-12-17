@@ -30,14 +30,15 @@
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_Play = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lb_ID1 = new System.Windows.Forms.Label();
+            this.lb_Username1 = new System.Windows.Forms.Label();
+            this.lb_Win = new System.Windows.Forms.Label();
+            this.txb_ID = new System.Windows.Forms.TextBox();
+            this.txb_Username2 = new System.Windows.Forms.TextBox();
+            this.txb_Win = new System.Windows.Forms.TextBox();
+            this.lb_Lose = new System.Windows.Forms.Label();
             this.btn_LogOut = new System.Windows.Forms.Button();
+            this.txb_Lose = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,8 +47,9 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = global::Game_Caro.Properties.Resources.background_SignUp;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(619, 347);
+            this.pictureBox1.Size = new System.Drawing.Size(928, 534);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -56,98 +58,120 @@
             // 
             this.btn_Play.BackColor = System.Drawing.Color.Pink;
             this.btn_Play.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Play.Location = new System.Drawing.Point(263, 253);
+            this.btn_Play.Location = new System.Drawing.Point(394, 389);
+            this.btn_Play.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_Play.Name = "btn_Play";
-            this.btn_Play.Size = new System.Drawing.Size(98, 34);
+            this.btn_Play.Size = new System.Drawing.Size(147, 52);
             this.btn_Play.TabIndex = 1;
             this.btn_Play.Text = "Play game";
             this.btn_Play.UseVisualStyleBackColor = false;
             this.btn_Play.Click += new System.EventHandler(this.btn_Play_Click);
             // 
-            // label1
+            // lb_ID1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(66, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.lb_ID1.AutoSize = true;
+            this.lb_ID1.BackColor = System.Drawing.Color.White;
+            this.lb_ID1.Location = new System.Drawing.Point(109, 64);
+            this.lb_ID1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lb_ID1.Name = "lb_ID1";
+            this.lb_ID1.Size = new System.Drawing.Size(26, 20);
+            this.lb_ID1.TabIndex = 2;
+            this.lb_ID1.Text = "ID";
             // 
-            // label2
+            // lb_Username1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(66, 79);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "label2";
+            this.lb_Username1.AutoSize = true;
+            this.lb_Username1.BackColor = System.Drawing.Color.White;
+            this.lb_Username1.Location = new System.Drawing.Point(109, 109);
+            this.lb_Username1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lb_Username1.Name = "lb_Username1";
+            this.lb_Username1.Size = new System.Drawing.Size(83, 20);
+            this.lb_Username1.TabIndex = 3;
+            this.lb_Username1.Text = "Username";
             // 
-            // label3
+            // lb_Win
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(66, 117);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "label3";
+            this.lb_Win.AutoSize = true;
+            this.lb_Win.BackColor = System.Drawing.Color.White;
+            this.lb_Win.Location = new System.Drawing.Point(109, 162);
+            this.lb_Win.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lb_Win.Name = "lb_Win";
+            this.lb_Win.Size = new System.Drawing.Size(36, 20);
+            this.lb_Win.TabIndex = 4;
+            this.lb_Win.Text = "Win";
             // 
-            // textBox1
+            // txb_ID
             // 
-            this.textBox1.Location = new System.Drawing.Point(181, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(310, 20);
-            this.textBox1.TabIndex = 5;
+            this.txb_ID.Location = new System.Drawing.Point(272, 58);
+            this.txb_ID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txb_ID.Name = "txb_ID";
+            this.txb_ID.Size = new System.Drawing.Size(140, 26);
+            this.txb_ID.TabIndex = 5;
             // 
-            // textBox2
+            // txb_Username2
             // 
-            this.textBox2.Location = new System.Drawing.Point(181, 79);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(310, 20);
-            this.textBox2.TabIndex = 6;
+            this.txb_Username2.Location = new System.Drawing.Point(272, 106);
+            this.txb_Username2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txb_Username2.Name = "txb_Username2";
+            this.txb_Username2.Size = new System.Drawing.Size(269, 26);
+            this.txb_Username2.TabIndex = 6;
             // 
-            // textBox3
+            // txb_Win
             // 
-            this.textBox3.Location = new System.Drawing.Point(181, 117);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(310, 20);
-            this.textBox3.TabIndex = 7;
+            this.txb_Win.Location = new System.Drawing.Point(272, 156);
+            this.txb_Win.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txb_Win.Name = "txb_Win";
+            this.txb_Win.Size = new System.Drawing.Size(140, 26);
+            this.txb_Win.TabIndex = 7;
             // 
-            // label4
+            // lb_Lose
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(66, 157);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "label4";
+            this.lb_Lose.AutoSize = true;
+            this.lb_Lose.BackColor = System.Drawing.Color.White;
+            this.lb_Lose.Location = new System.Drawing.Point(109, 212);
+            this.lb_Lose.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lb_Lose.Name = "lb_Lose";
+            this.lb_Lose.Size = new System.Drawing.Size(44, 20);
+            this.lb_Lose.TabIndex = 8;
+            this.lb_Lose.Text = "Lose";
             // 
             // btn_LogOut
             // 
             this.btn_LogOut.BackColor = System.Drawing.Color.Red;
             this.btn_LogOut.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_LogOut.Location = new System.Drawing.Point(275, 312);
+            this.btn_LogOut.Location = new System.Drawing.Point(412, 480);
+            this.btn_LogOut.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_LogOut.Name = "btn_LogOut";
-            this.btn_LogOut.Size = new System.Drawing.Size(75, 23);
+            this.btn_LogOut.Size = new System.Drawing.Size(112, 35);
             this.btn_LogOut.TabIndex = 9;
             this.btn_LogOut.Text = "Log out";
             this.btn_LogOut.UseVisualStyleBackColor = false;
             this.btn_LogOut.Click += new System.EventHandler(this.btn_LogOut_Click);
             // 
+            // txb_Lose
+            // 
+            this.txb_Lose.Location = new System.Drawing.Point(272, 206);
+            this.txb_Lose.Name = "txb_Lose";
+            this.txb_Lose.Size = new System.Drawing.Size(140, 26);
+            this.txb_Lose.TabIndex = 10;
+            // 
             // Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(619, 347);
+            this.ClientSize = new System.Drawing.Size(928, 534);
+            this.Controls.Add(this.txb_Lose);
             this.Controls.Add(this.btn_LogOut);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lb_Lose);
+            this.Controls.Add(this.txb_Win);
+            this.Controls.Add(this.txb_Username2);
+            this.Controls.Add(this.txb_ID);
+            this.Controls.Add(this.lb_Win);
+            this.Controls.Add(this.lb_Username1);
+            this.Controls.Add(this.lb_ID1);
             this.Controls.Add(this.btn_Play);
             this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Home";
             this.Text = "Home";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -160,13 +184,14 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btn_Play;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lb_ID1;
+        private System.Windows.Forms.Label lb_Username1;
+        private System.Windows.Forms.Label lb_Win;
+        private System.Windows.Forms.TextBox txb_ID;
+        private System.Windows.Forms.TextBox txb_Username2;
+        private System.Windows.Forms.TextBox txb_Win;
+        private System.Windows.Forms.Label lb_Lose;
         private System.Windows.Forms.Button btn_LogOut;
+        private System.Windows.Forms.TextBox txb_Lose;
     }
 }

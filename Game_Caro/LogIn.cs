@@ -12,9 +12,11 @@ namespace Game_Caro
 {
     public partial class LogIn : Form
     {
+        PlayerBLL bllPlayer;
         public LogIn()
         {
             InitializeComponent();
+            bllPlayer = new PlayerBLL();
         }
 
         private bool infoCheck()
@@ -29,10 +31,20 @@ namespace Game_Caro
 
         private void btn_LogIn_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Home home = new Home();
-            home.ShowDialog();
-            this.Close();
+            string x=txb_Username.Text;
+            string y=txb_Password.Text;
+            if (bllPlayer.CheckPassword(x,y))
+            {
+                this.Hide();
+                Home home = new Home();
+                home.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Error!");
+            }
+            
         }
 
         private void btn_SignUp_Click(object sender, EventArgs e)

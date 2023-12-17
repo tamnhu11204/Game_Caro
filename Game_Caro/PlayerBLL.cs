@@ -23,5 +23,9 @@ namespace Game_Caro
         {
             return dalPlayer.InsertPlayer(p);
         }
+        public bool CheckPassword(string x,string y)
+        {
+            return dalPlayer.CheckPassword(x,y);
+        }
     }
 }
