@@ -48,31 +48,72 @@
   <ItemGroup>
     <Compile Include="ChessBoardManager.cs" />
     <Compile Include="Const.cs" />
+    <Compile Include="DataConnection.cs" />
     <Compile Include="Game_Caro.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Game_Caro.Designer.cs">
       <DependentUpon>Game_Caro.cs</DependentUpon>
     </Compile>
+    <Compile Include="LogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogIn.Designer.cs">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Player.cs" />
+    <Compile Include="PlayerBLL.cs" />
+    <Compile Include="PlayerDAL.cs" />
+    <Compile Include="PLAYERMANAGEMENTDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PLAYERMANAGEMENTDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="PlayInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
     <Compile Include="SocketData.cs" />
+=======
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SignUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SignUp.Designer.cs">
+      <DependentUpon>SignUp.cs</DependentUpon>
+    </Compile>
+>>>>>>> 442e1b92df615123f87609826dcdff60c2e5f602
     <Compile Include="SocketManager.cs" />
+    <Compile Include="tbPlayer.cs" />
     <EmbeddedResource Include="Game_Caro.resx">
       <DependentUpon>Game_Caro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LogIn.resx">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <EmbeddedResource Include="SignUp.resx">
+      <DependentUpon>SignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="PLAYERMANAGEMENTDataSet.xsc">
+      <DependentUpon>PLAYERMANAGEMENTDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PLAYERMANAGEMENTDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PLAYERMANAGEMENTDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PLAYERMANAGEMENTDataSet.xss">
+      <DependentUpon>PLAYERMANAGEMENTDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -91,6 +132,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\IconX.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background_SignUp.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\LogoCaro.png" />

@@ -95,7 +95,7 @@ namespace Game_Caro
 
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ChessBoard.Undo();
+
         }
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
