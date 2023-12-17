@@ -78,6 +78,9 @@
     <Compile Include="PlayInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
+    <Compile Include="SocketData.cs" />
+=======
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -89,6 +92,7 @@
     <Compile Include="SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
+>>>>>>> 442e1b92df615123f87609826dcdff60c2e5f602
     <Compile Include="SocketManager.cs" />
     <Compile Include="tbPlayer.cs" />
     <EmbeddedResource Include="Game_Caro.resx">
