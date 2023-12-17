@@ -32,6 +32,7 @@ namespace Game_Caro
 
             progressBar.Step = Const.countDownStep;
             progressBar.Maximum = Const.countDownTime;
+            progressBar.Value = 0;
             timerCountDown.Interval = Const.countDownInterval;
 
             socket = new SocketManager();
@@ -46,20 +47,28 @@ namespace Game_Caro
             timerCountDown.Stop();
             pnl_ChessBoard.Enabled = false;
             undoToolStripMenuItem.Enabled = false;
-            MessageBox.Show("End game!!!");
+            //MessageBox.Show("End game!!!");
         }
         void ChessBoard_PlayerMarked(object sender,ButtonCLickEvent e)
         {
             timerCountDown.Start();
             pnl_ChessBoard.Enabled=false;
             progressBar.Value = 0;
-            socket.Send(new SocketData((int)SocketCommand.SEND_POINT,"", e.CLickedPoint));
+
+            socket.Send(new SocketData((int)SocketCommand.SEND_POINT, "", e.CLickedPoint));
+            undoToolStripMenuItem.Enabled = false;
+
             Listen();
         }
+
         void ChessBoard_EndedGame(object sender, EventArgs e)
         {
             EndGame();
+
+            socket.Send(new SocketData((int)SocketCommand.END_GAME, "", new Point()));
         }
+
+
         void NewGame()
         {
             progressBar.Value = 0;
@@ -67,6 +76,7 @@ namespace Game_Caro
             undoToolStripMenuItem.Enabled = true;
             ChessBoard.DrawChessBoard();
         }
+
         void Quit()
         {
             DialogResult r = MessageBox.Show("Do you want to exit this cute game?", "Question?",
@@ -78,6 +88,13 @@ namespace Game_Caro
                 Application.Exit();
             }
         }
+
+        void Undo()
+        {
+            ChessBoard.Undo();
+            progressBar.Value = 0;
+        }
+
         private void timerCountDown_Tick(object sender, EventArgs e)
         {
             progressBar.PerformStep();
@@ -85,22 +102,47 @@ namespace Game_Caro
             if (progressBar.Value >= progressBar.Maximum)
             {
                 EndGame();
+                socket.Send(new SocketData((int)SocketCommand.TIME_OUT, "", new Point()));
             }
         }
 
         private void playWithFriendToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NewGame();
+
+            socket.Send(new SocketData((int)SocketCommand.NEW_GAME, "", new Point()));
+            pnl_ChessBoard.Enabled = true;
         }
 
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Undo();
+            socket.Send(new SocketData((int)SocketCommand.UNDO, "", new Point()));
         }
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Quit();
+        }
+
+        private void Game_Caro_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(MessageBox.Show("Bạn có muốn thoát", "Thông báo",MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
+            {
+                e.Cancel = true;
+            }    
+            else
+            {
+                try
+                {
+                    socket.Send(new SocketData((int)SocketCommand.QUIT, "", new Point()));
+                }
+                catch
+                {
+
+                }
+
+            }    
         }
 
         private void btn_Connect_Click(object sender, EventArgs e)
@@ -163,6 +205,11 @@ namespace Game_Caro
                     break;
 
                 case (int)SocketCommand.NEW_GAME:
+                    this.Invoke((MethodInvoker)(() =>
+                    {
+                        NewGame();
+                        pnl_ChessBoard.Enabled = false;
+                    }));
                     break;
 
                 case (int)SocketCommand.SEND_POINT:
@@ -172,16 +219,29 @@ namespace Game_Caro
                         progressBar.Enabled = true;
                         timerCountDown.Start();
                         ChessBoard.OtherPlayerMark(data.Point);
+
+                        undoToolStripMenuItem.Enabled = true;
                     }));
                     break;
 
                 case (int)SocketCommand.UNDO:
+                    Undo();
+                    progressBar.Value = 0; // reset processBar
+                   
                     break;
 
                 case (int)SocketCommand.END_GAME:
+                    MessageBox.Show("Đã 5 con trên 1 hàng");
                     break;
 
+                case (int)SocketCommand.TIME_OUT:
+                    MessageBox.Show("Hết giờ");
+                    break;
+
+
                 case (int)SocketCommand.QUIT:
+                    timerCountDown.Stop();
+                    MessageBox.Show("Người chơi đã thoát");
                     break;
 
                 default:
@@ -199,5 +259,7 @@ namespace Game_Caro
             home.ShowDialog();
             this.Close();
         }
+
+
     }
 }
