@@ -50,28 +50,13 @@
   <ItemGroup>
     <Compile Include="ChessBoardManager.cs" />
     <Compile Include="Const.cs" />
-    <Compile Include="DataConnection.cs" />
     <Compile Include="Game_Caro.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Game_Caro.Designer.cs">
       <DependentUpon>Game_Caro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Home.Designer.cs">
-      <DependentUpon>Home.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LogIn.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LogIn.Designer.cs">
-      <DependentUpon>LogIn.cs</DependentUpon>
-    </Compile>
     <Compile Include="Player.cs" />
-    <Compile Include="PlayerBLL.cs" />
-    <Compile Include="PlayerDAL.cs" />
     <Compile Include="PLAYERMANAGEMENTDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -86,30 +71,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SignUp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SignUp.Designer.cs">
-      <DependentUpon>SignUp.cs</DependentUpon>
-    </Compile>
     <Compile Include="SocketManager.cs" />
-    <Compile Include="tbPlayer.cs" />
     <EmbeddedResource Include="Game_Caro.resx">
       <DependentUpon>Game_Caro.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Home.resx">
-      <DependentUpon>Home.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LogIn.resx">
-      <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SignUp.resx">
-      <DependentUpon>SignUp.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="PLAYERMANAGEMENTDataSet.xsc">
       <DependentUpon>PLAYERMANAGEMENTDataSet.xsd</DependentUpon>

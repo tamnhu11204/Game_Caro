@@ -252,13 +252,6 @@ namespace Game_Caro
         }
         #endregion
 
-        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Home home = new Home();
-            home.ShowDialog();
-            this.Close();
-        }
 
 
     }
