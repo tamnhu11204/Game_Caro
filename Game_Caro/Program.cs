@@ -16,7 +16,7 @@ namespace Game_Caro
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Game_Caro());
+            Application.Run(new SignUp());
         }
     }
 }
