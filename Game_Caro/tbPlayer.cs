@@ -10,7 +10,14 @@ namespace Game_Caro
     {
         public string Username {  get; set; }
         public string Password { get; set; }
+        public string Fullname {  get; set; }
+        public int Age {  get; set; }
         public int Win {  get; set; }
         public int Lose { get; set; }
+
+        internal static bool IsEqual(tbPlayer resUser, tbPlayer curUser)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
