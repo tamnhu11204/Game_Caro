@@ -130,7 +130,7 @@ namespace Game_Caro
 
         private void Game_Caro_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(MessageBox.Show("Bạn có muốn thoát", "Thông báo",MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
+            if(MessageBox.Show("Are you sure you want to quit?", "Confirmation",MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
             {
                 e.Cancel = true;
             }    
@@ -234,17 +234,17 @@ namespace Game_Caro
                     break;
 
                 case (int)SocketCommand.END_GAME:
-                    MessageBox.Show("Đã 5 con trên 1 hàng");
+                    MessageBox.Show("5 in a row");
                     break;
 
                 case (int)SocketCommand.TIME_OUT:
-                    MessageBox.Show("Hết giờ");
+                    MessageBox.Show("Time's up");
                     break;
 
 
                 case (int)SocketCommand.QUIT:
                     timerCountDown.Stop();
-                    MessageBox.Show("Người chơi đã thoát");
+                    MessageBox.Show("Player is quit");
                     break;
 
                 default:
