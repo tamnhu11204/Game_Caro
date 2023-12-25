@@ -66,10 +66,6 @@ namespace Game_Caro
                     game.ShowDialog();
                     this.Close();
                 }
-                else
-                {
-                    MessageBox.Show("Username does not exist!");
-                }
             }
         }
 

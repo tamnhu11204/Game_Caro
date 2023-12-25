@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Game_Caro
 {
@@ -14,10 +15,21 @@ namespace Game_Caro
         public int Age {  get; set; }
         public int Win {  get; set; }
         public int Lose { get; set; }
-
-        internal static bool IsEqual(tbPlayer resUser, tbPlayer curUser)
+        public static bool IsEqual(tbPlayer resUser, tbPlayer curUser)
         {
-            throw new NotImplementedException();
+            if(resUser == null||curUser==null)
+                return false;
+            if(resUser.Username!=curUser.Username) 
+            {
+                MessageBox.Show("Username does not exist!");
+                return false; 
+            }
+            if (resUser.Username != curUser.Username&&resUser.Password != curUser.Password)
+            {
+                MessageBox.Show("Username and password does not match!");
+                return false;
+            }
+            return true;
         }
     }
 }

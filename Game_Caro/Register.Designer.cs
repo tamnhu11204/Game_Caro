@@ -85,7 +85,7 @@
             // 
             this.btn_SignUp.BackColor = System.Drawing.Color.LightBlue;
             this.btn_SignUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_SignUp.Location = new System.Drawing.Point(341, 251);
+            this.btn_SignUp.Location = new System.Drawing.Point(286, 247);
             this.btn_SignUp.Name = "btn_SignUp";
             this.btn_SignUp.Size = new System.Drawing.Size(150, 44);
             this.btn_SignUp.TabIndex = 17;
@@ -136,10 +136,10 @@
             // 
             this.lb_Title.AutoSize = true;
             this.lb_Title.BackColor = System.Drawing.Color.White;
-            this.lb_Title.Font = new System.Drawing.Font("MS Reference Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Title.Font = new System.Drawing.Font("Modern No. 20", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Title.Location = new System.Drawing.Point(277, 18);
             this.lb_Title.Name = "lb_Title";
-            this.lb_Title.Size = new System.Drawing.Size(186, 49);
+            this.lb_Title.Size = new System.Drawing.Size(185, 50);
             this.lb_Title.TabIndex = 12;
             this.lb_Title.Text = "Sign Up";
             // 

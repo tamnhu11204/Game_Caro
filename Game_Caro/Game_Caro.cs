@@ -253,9 +253,14 @@ namespace Game_Caro
 
             Listen();
         }
+
+
         #endregion
 
-
-
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            
+        }
     }
 }
