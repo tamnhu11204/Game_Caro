@@ -30,20 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogIn));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btn_SignUp = new System.Windows.Forms.Button();
-            this.btn_LogIn = new System.Windows.Forms.Button();
-            this.lb_Username = new System.Windows.Forms.Label();
-            this.lb_Password = new System.Windows.Forms.Label();
-            this.txb_Password = new System.Windows.Forms.TextBox();
-            this.txb_Username = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_SignUp = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.txb_Username = new System.Windows.Forms.TextBox();
+            this.txb_Password = new System.Windows.Forms.TextBox();
+            this.lb_Password = new System.Windows.Forms.Label();
+            this.lb_Username = new System.Windows.Forms.Label();
+            this.btn_LogIn = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,39 +57,16 @@
             this.panel1.Size = new System.Drawing.Size(273, 453);
             this.panel1.TabIndex = 0;
             // 
-            // panel2
+            // label1
             // 
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.txb_Username);
-            this.panel2.Controls.Add(this.txb_Password);
-            this.panel2.Controls.Add(this.lb_Password);
-            this.panel2.Controls.Add(this.lb_Username);
-            this.panel2.Controls.Add(this.btn_LogIn);
-            this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Location = new System.Drawing.Point(286, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(517, 453);
-            this.panel2.TabIndex = 1;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Game_Caro.Properties.Resources.background_SignUp;
-            this.pictureBox1.Location = new System.Drawing.Point(2, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(270, 449);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Game_Caro.Properties.Resources.background_SignUp;
-            this.pictureBox2.Location = new System.Drawing.Point(-2, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(516, 453);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Modern No. 20", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(46, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(182, 41);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "SIGN UP";
             // 
             // btn_SignUp
             // 
@@ -103,28 +80,56 @@
             this.btn_SignUp.UseVisualStyleBackColor = false;
             this.btn_SignUp.Click += new System.EventHandler(this.btn_SignUp_Click);
             // 
-            // btn_LogIn
+            // pictureBox1
             // 
-            this.btn_LogIn.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.btn_LogIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_LogIn.Location = new System.Drawing.Point(197, 257);
-            this.btn_LogIn.Name = "btn_LogIn";
-            this.btn_LogIn.Size = new System.Drawing.Size(108, 47);
-            this.btn_LogIn.TabIndex = 1;
-            this.btn_LogIn.Text = "Log In";
-            this.btn_LogIn.UseVisualStyleBackColor = false;
-            this.btn_LogIn.Click += new System.EventHandler(this.btn_LogIn_Click);
+            this.pictureBox1.Image = global::Game_Caro.Properties.Resources.background_SignUp;
+            this.pictureBox1.Location = new System.Drawing.Point(2, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(270, 449);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
-            // lb_Username
+            // panel2
             // 
-            this.lb_Username.AutoSize = true;
-            this.lb_Username.BackColor = System.Drawing.Color.White;
-            this.lb_Username.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Username.Location = new System.Drawing.Point(62, 111);
-            this.lb_Username.Name = "lb_Username";
-            this.lb_Username.Size = new System.Drawing.Size(102, 25);
-            this.lb_Username.TabIndex = 2;
-            this.lb_Username.Text = "Username";
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.txb_Username);
+            this.panel2.Controls.Add(this.txb_Password);
+            this.panel2.Controls.Add(this.lb_Password);
+            this.panel2.Controls.Add(this.lb_Username);
+            this.panel2.Controls.Add(this.btn_LogIn);
+            this.panel2.Controls.Add(this.pictureBox2);
+            this.panel2.Location = new System.Drawing.Point(282, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(521, 453);
+            this.panel2.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Font = new System.Drawing.Font("Modern No. 20", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(178, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(158, 41);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "LOG IN";
+            // 
+            // txb_Username
+            // 
+            this.txb_Username.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txb_Username.Location = new System.Drawing.Point(217, 110);
+            this.txb_Username.Name = "txb_Username";
+            this.txb_Username.Size = new System.Drawing.Size(210, 26);
+            this.txb_Username.TabIndex = 5;
+            // 
+            // txb_Password
+            // 
+            this.txb_Password.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txb_Password.Location = new System.Drawing.Point(217, 149);
+            this.txb_Password.Name = "txb_Password";
+            this.txb_Password.Size = new System.Drawing.Size(210, 26);
+            this.txb_Password.TabIndex = 4;
             // 
             // lb_Password
             // 
@@ -137,43 +142,38 @@
             this.lb_Password.TabIndex = 3;
             this.lb_Password.Text = "Password";
             // 
-            // txb_Password
+            // lb_Username
             // 
-            this.txb_Password.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txb_Password.Location = new System.Drawing.Point(217, 149);
-            this.txb_Password.Name = "txb_Password";
-            this.txb_Password.Size = new System.Drawing.Size(210, 26);
-            this.txb_Password.TabIndex = 4;
+            this.lb_Username.AutoSize = true;
+            this.lb_Username.BackColor = System.Drawing.Color.White;
+            this.lb_Username.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Username.Location = new System.Drawing.Point(62, 111);
+            this.lb_Username.Name = "lb_Username";
+            this.lb_Username.Size = new System.Drawing.Size(102, 25);
+            this.lb_Username.TabIndex = 2;
+            this.lb_Username.Text = "Username";
             // 
-            // txb_Username
+            // btn_LogIn
             // 
-            this.txb_Username.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txb_Username.Location = new System.Drawing.Point(217, 110);
-            this.txb_Username.Name = "txb_Username";
-            this.txb_Username.Size = new System.Drawing.Size(210, 26);
-            this.txb_Username.TabIndex = 5;
+            this.btn_LogIn.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.btn_LogIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_LogIn.Location = new System.Drawing.Point(197, 257);
+            this.btn_LogIn.Name = "btn_LogIn";
+            this.btn_LogIn.Size = new System.Drawing.Size(108, 47);
+            this.btn_LogIn.TabIndex = 1;
+            this.btn_LogIn.Text = "Log In";
+            this.btn_LogIn.UseVisualStyleBackColor = false;
+            this.btn_LogIn.Click += new System.EventHandler(this.btn_LogIn_Click);
             // 
-            // label1
+            // pictureBox2
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Modern No. 20", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(46, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(182, 41);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "SIGN UP";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Modern No. 20", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(178, 18);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(158, 41);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "LOG IN";
+            this.pictureBox2.Image = global::Game_Caro.Properties.Resources.background_SignUp;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(536, 453);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
             // 
             // LogIn
             // 
@@ -188,9 +188,9 @@
             this.Load += new System.EventHandler(this.LogIn_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 

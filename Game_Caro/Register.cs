@@ -77,6 +77,14 @@ namespace Game_Caro
             }
 
         }
+
+        private void btn_Exit_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LogIn l = new LogIn();
+            l.ShowDialog();
+            this.Close();
+        }
     }
 }
 

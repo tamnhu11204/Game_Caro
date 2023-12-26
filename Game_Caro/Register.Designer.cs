@@ -40,6 +40,7 @@
             this.lb_Username = new System.Windows.Forms.Label();
             this.lb_Title = new System.Windows.Forms.Label();
             this.pcb_SignUp = new System.Windows.Forms.PictureBox();
+            this.btn_Exit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_SignUp)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,8 +84,9 @@
             // 
             // btn_SignUp
             // 
-            this.btn_SignUp.BackColor = System.Drawing.Color.LightBlue;
+            this.btn_SignUp.BackColor = System.Drawing.Color.PaleTurquoise;
             this.btn_SignUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_SignUp.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_SignUp.Location = new System.Drawing.Point(286, 247);
             this.btn_SignUp.Name = "btn_SignUp";
             this.btn_SignUp.Size = new System.Drawing.Size(150, 44);
@@ -146,18 +148,31 @@
             // pcb_SignUp
             // 
             this.pcb_SignUp.Image = global::Game_Caro.Properties.Resources.background_SignUp;
-            this.pcb_SignUp.Location = new System.Drawing.Point(-1, 1);
+            this.pcb_SignUp.Location = new System.Drawing.Point(-2, 2);
             this.pcb_SignUp.Name = "pcb_SignUp";
             this.pcb_SignUp.Size = new System.Drawing.Size(803, 448);
             this.pcb_SignUp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcb_SignUp.TabIndex = 11;
             this.pcb_SignUp.TabStop = false;
             // 
+            // btn_Exit
+            // 
+            this.btn_Exit.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.btn_Exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Exit.Location = new System.Drawing.Point(684, 396);
+            this.btn_Exit.Name = "btn_Exit";
+            this.btn_Exit.Size = new System.Drawing.Size(95, 42);
+            this.btn_Exit.TabIndex = 22;
+            this.btn_Exit.Text = "Exit";
+            this.btn_Exit.UseVisualStyleBackColor = false;
+            this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.txb_Age);
             this.Controls.Add(this.txb_Fullname);
             this.Controls.Add(this.lb_Age);
@@ -192,5 +207,6 @@
         private System.Windows.Forms.Label lb_Username;
         private System.Windows.Forms.Label lb_Title;
         private System.Windows.Forms.PictureBox pcb_SignUp;
+        private System.Windows.Forms.Button btn_Exit;
     }
 }

@@ -62,8 +62,8 @@ namespace Game_Caro
                 if(tbPlayer.IsEqual(ResUser,curUser))
                 {
                     this.Hide();
-                    Game_Caro game = new Game_Caro();
-                    game.ShowDialog();
+                    Home h = new Home();
+                    h.ShowDialog();
                     this.Close();
                 }
             }
