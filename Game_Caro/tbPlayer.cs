@@ -9,6 +9,12 @@ namespace Game_Caro
 {
     internal class tbPlayer
     {
+        public tbPlayer (string user, string pass, string full)
+        {
+            Username = user;
+            Password = pass;
+            Fullname = full;
+        }
         public string Username {  get; set; }
         public string Password { get; set; }
         public string Fullname {  get; set; }
