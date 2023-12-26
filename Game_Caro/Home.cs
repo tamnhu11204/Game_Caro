@@ -20,6 +20,7 @@ namespace Game_Caro
         {
             InitializeComponent();
             Username = username;
+            txb_Username.Text = Username;
         }
         IFirebaseConfig config = new FirebaseConfig
         {
@@ -40,11 +41,10 @@ namespace Game_Caro
                 MessageBox.Show("No Internet or Connection Problem");
             }
         }
-        private async void ShowInfo()
+        private void ShowInfo()
         {
-            FirebaseResponse res = await client.GetAsync(@"Player/".Where(x => x.["Username"]==Username));
+            FirebaseResponse res = client.Get(@"Player/" + txb_Username.Text);
             tbPlayer pl = res.ResultAs<tbPlayer>();
-            txb_Username.Text = pl.Username;
             txb_Password.Text = pl.Password;
             txb_Age.Text=pl.Age.ToString();
             txb_Fullname.Text = pl.Fullname;
@@ -76,6 +76,7 @@ namespace Game_Caro
 
         private void Home_Load(object sender, EventArgs e)
         {
+            
             ShowInfo();
         }
     }
