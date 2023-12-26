@@ -39,7 +39,7 @@ namespace Game_Caro
                 MessageBox.Show("No Internet or Connection Problem");
             }
         }
-        private bool CheckInput()
+/*        private bool CheckInput()
         {
             if (txb_Password.Text.Length == 0 || txb_Username.Text.Length == 0)
             {
@@ -47,26 +47,42 @@ namespace Game_Caro
                 return false;
             }
             return true;
-        }
+        }*/
         private void btn_LogIn_Click(object sender, EventArgs e)
         {
-            if(CheckInput())
+            //if(CheckInput())
+            //{
+
+            #region Condition
+            if (string.IsNullOrWhiteSpace(txb_Username.Text) &&
+                string.IsNullOrWhiteSpace(txb_Password.Text))
             {
-                FirebaseResponse res=client.Get(@"Player/"+txb_Username.Text);
+                MessageBox.Show("Please provide all of the required information!");
+                return;
+            }
+            #endregion
+            FirebaseResponse res =client.Get(@"Player/"+txb_Username.Text);
                 tbPlayer ResUser=res.ResultAs<tbPlayer>();
-                tbPlayer curUser = new tbPlayer() 
+
+                tbPlayer CurUser = new tbPlayer() 
                 { 
                     Username =txb_Username.Text,
-                    Password =txb_Password.Text,
+                    Password =txb_Password.Text
                 };
-                if(tbPlayer.IsEqual(ResUser,curUser))
+
+                if(tbPlayer.IsEqual(ResUser,CurUser))
                 {
                     this.Hide();
                     Home h = new Home();
                     h.ShowDialog();
                     this.Close();
                 }
-            }
+
+                else 
+                {
+                    tbPlayer.ShowError();
+                }
+            //}
         }
 
         private void btn_SignUp_Click(object sender, EventArgs e)

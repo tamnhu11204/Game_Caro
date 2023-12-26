@@ -41,7 +41,7 @@ namespace Game_Caro
                 MessageBox.Show("No Internet or Connection Problem");
             }
         }
-        private bool CheckInput()
+/*        private bool CheckInput()
         {
             if (txb_Password.Text.Length == 0 || txb_Username.Text.Length == 0 || txb_Fullname.Text.Length == 0 || txb_Age.Text.Length == 0)
             {
@@ -49,11 +49,22 @@ namespace Game_Caro
                 return false;
             }
             return true;
-        }
+        }*/
         private void btn_SignUp_Click(object sender, EventArgs e)
         {
-            if(CheckInput())
+            //if(CheckInput())
+            //{
+            #region Condition
+            if (string.IsNullOrWhiteSpace(txb_Username.Text) &&
+                string.IsNullOrWhiteSpace(txb_Password.Text) &&
+                string.IsNullOrWhiteSpace(txb_Fullname.Text) &&
+                string.IsNullOrWhiteSpace(txb_Age.Text))
             {
+                MessageBox.Show("Please provide all of the required information!");
+                return;
+            }
+            #endregion
+
                 tbPlayer user = new tbPlayer()
                 {
                     Username = txb_Username.Text,
@@ -74,7 +85,7 @@ namespace Game_Caro
                     l.ShowDialog();
                     this.Close();
                 }
-            }
+           //}
 
         }
 
