@@ -15,18 +15,28 @@ namespace Game_Caro
         public int Age {  get; set; }
         public int Win {  get; set; }
         public int Lose { get; set; }
+
+        private static string error="Username does not exist!";
+
+        public static void ShowError()
+        {
+            System.Windows.Forms.MessageBox.Show(error);
+        }
+
         public static bool IsEqual(tbPlayer resUser, tbPlayer curUser)
         {
-            if(resUser == null||curUser==null)
+            if(resUser == null || curUser == null)
                 return false;
+
             if(resUser.Username!=curUser.Username) 
             {
-                MessageBox.Show("Username does not exist!");
+                error = "Username does not exist!";
                 return false; 
             }
-            if (resUser.Username != curUser.Username&&resUser.Password != curUser.Password)
+
+            else if (resUser.Password != curUser.Password)
             {
-                MessageBox.Show("Username and password does not match!");
+                error = "Username and password does not match!";
                 return false;
             }
             return true;
