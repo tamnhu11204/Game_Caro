@@ -11,6 +11,7 @@ using FireSharp.Config;
 using FireSharp.Response;
 using FireSharp.Interfaces;
 using System.Diagnostics.Eventing.Reader;
+using Firebase.Database;
 
 namespace Game_Caro
 {
@@ -62,7 +63,8 @@ namespace Game_Caro
                 if(tbPlayer.IsEqual(ResUser,curUser))
                 {
                     this.Hide();
-                    Home h = new Home();
+                    Home h = new Home(ResUser.Username);
+
                     h.ShowDialog();
                     this.Close();
                 }

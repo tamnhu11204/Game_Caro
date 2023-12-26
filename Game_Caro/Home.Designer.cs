@@ -37,12 +37,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txb_Username = new System.Windows.Forms.TextBox();
+            this.txb_Fullname = new System.Windows.Forms.TextBox();
+            this.txb_Age = new System.Windows.Forms.TextBox();
+            this.txb_Password = new System.Windows.Forms.TextBox();
+            this.txb_Win = new System.Windows.Forms.TextBox();
+            this.txb_Lose = new System.Windows.Forms.TextBox();
             this.btn_PlayGame = new System.Windows.Forms.Button();
             this.btn_LogOut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_home)).BeginInit();
@@ -137,53 +137,53 @@
             this.label7.TabIndex = 7;
             this.label7.Text = "Age";
             // 
-            // textBox1
+            // txb_Username
             // 
-            this.textBox1.Location = new System.Drawing.Point(193, 115);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(292, 26);
-            this.textBox1.TabIndex = 8;
+            this.txb_Username.Location = new System.Drawing.Point(193, 115);
+            this.txb_Username.Name = "txb_Username";
+            this.txb_Username.ReadOnly = true;
+            this.txb_Username.Size = new System.Drawing.Size(292, 26);
+            this.txb_Username.TabIndex = 8;
             // 
-            // textBox2
+            // txb_Fullname
             // 
-            this.textBox2.Location = new System.Drawing.Point(193, 225);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(292, 26);
-            this.textBox2.TabIndex = 9;
+            this.txb_Fullname.Location = new System.Drawing.Point(193, 225);
+            this.txb_Fullname.Name = "txb_Fullname";
+            this.txb_Fullname.ReadOnly = true;
+            this.txb_Fullname.Size = new System.Drawing.Size(292, 26);
+            this.txb_Fullname.TabIndex = 9;
             // 
-            // textBox3
+            // txb_Age
             // 
-            this.textBox3.Location = new System.Drawing.Point(193, 278);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(70, 26);
-            this.textBox3.TabIndex = 10;
+            this.txb_Age.Location = new System.Drawing.Point(193, 278);
+            this.txb_Age.Name = "txb_Age";
+            this.txb_Age.ReadOnly = true;
+            this.txb_Age.Size = new System.Drawing.Size(70, 26);
+            this.txb_Age.TabIndex = 10;
             // 
-            // textBox4
+            // txb_Password
             // 
-            this.textBox4.Location = new System.Drawing.Point(193, 171);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(292, 26);
-            this.textBox4.TabIndex = 11;
+            this.txb_Password.Location = new System.Drawing.Point(193, 171);
+            this.txb_Password.Name = "txb_Password";
+            this.txb_Password.ReadOnly = true;
+            this.txb_Password.Size = new System.Drawing.Size(292, 26);
+            this.txb_Password.TabIndex = 11;
             // 
-            // textBox5
+            // txb_Win
             // 
-            this.textBox5.Location = new System.Drawing.Point(557, 162);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(42, 26);
-            this.textBox5.TabIndex = 12;
+            this.txb_Win.Location = new System.Drawing.Point(557, 162);
+            this.txb_Win.Name = "txb_Win";
+            this.txb_Win.ReadOnly = true;
+            this.txb_Win.Size = new System.Drawing.Size(42, 26);
+            this.txb_Win.TabIndex = 12;
             // 
-            // textBox6
+            // txb_Lose
             // 
-            this.textBox6.Location = new System.Drawing.Point(668, 162);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(42, 26);
-            this.textBox6.TabIndex = 13;
+            this.txb_Lose.Location = new System.Drawing.Point(668, 162);
+            this.txb_Lose.Name = "txb_Lose";
+            this.txb_Lose.ReadOnly = true;
+            this.txb_Lose.Size = new System.Drawing.Size(42, 26);
+            this.txb_Lose.TabIndex = 13;
             // 
             // btn_PlayGame
             // 
@@ -214,12 +214,12 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btn_LogOut);
             this.Controls.Add(this.btn_PlayGame);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txb_Lose);
+            this.Controls.Add(this.txb_Win);
+            this.Controls.Add(this.txb_Password);
+            this.Controls.Add(this.txb_Age);
+            this.Controls.Add(this.txb_Fullname);
+            this.Controls.Add(this.txb_Username);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -231,6 +231,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Home";
             this.Text = "Home";
+            this.Load += new System.EventHandler(this.Home_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pcb_home)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -247,12 +248,12 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txb_Username;
+        private System.Windows.Forms.TextBox txb_Fullname;
+        private System.Windows.Forms.TextBox txb_Age;
+        private System.Windows.Forms.TextBox txb_Password;
+        private System.Windows.Forms.TextBox txb_Win;
+        private System.Windows.Forms.TextBox txb_Lose;
         private System.Windows.Forms.Button btn_PlayGame;
         private System.Windows.Forms.Button btn_LogOut;
     }

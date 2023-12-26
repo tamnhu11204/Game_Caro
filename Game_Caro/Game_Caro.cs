@@ -15,18 +15,22 @@ using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
 
+
 namespace Game_Caro
 {
     public partial class Game_Caro : Form
     {
+
         #region Properties
+        public string Username;
         ChessBoardManager ChessBoard;
 
         SocketManager socket;
         #endregion
-        public Game_Caro()
+        public Game_Caro(string username)
         {
             InitializeComponent();
+            this.Username = username;
 
             Control.CheckForIllegalCrossThreadCalls = false;
             ChessBoard = new ChessBoardManager(pnl_ChessBoard, txtb_Player, picb_IconXO);
@@ -260,7 +264,7 @@ namespace Game_Caro
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Home home = new Home();
+            Home home = new Home(Username);
             home.ShowDialog();
             this.Close();
         }
