@@ -43,7 +43,7 @@ namespace Game_Caro
         }
         private void ShowInfo()
         {
-            FirebaseResponse res = client.Get(@"Player/" + txb_Username.Text);
+            FirebaseResponse res = client.Get(@"Player/" + txb_Username);
             tbPlayer pl = res.ResultAs<tbPlayer>();
             txb_Password.Text = pl.Password;
             txb_Age.Text=pl.Age.ToString();

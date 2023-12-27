@@ -268,5 +268,13 @@ namespace Game_Caro
             home.ShowDialog();
             this.Close();
         }
+
+        private void playWithComputerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            PlayVsComputer playVsComputer = new PlayVsComputer();
+            playVsComputer.ShowDialog();
+            this.Close();
+        }
     }
 }
