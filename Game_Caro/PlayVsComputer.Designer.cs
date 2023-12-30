@@ -42,7 +42,7 @@
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnl_Control = new System.Windows.Forms.Panel();
-            this.btn_Connect = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.picb_IconXO = new System.Windows.Forms.PictureBox();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.txtb_Player = new System.Windows.Forms.TextBox();
@@ -158,7 +158,7 @@
             // 
             this.pnl_Control.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_Control.BackColor = System.Drawing.Color.LightCoral;
-            this.pnl_Control.Controls.Add(this.btn_Connect);
+            this.pnl_Control.Controls.Add(this.button1);
             this.pnl_Control.Controls.Add(this.picb_IconXO);
             this.pnl_Control.Controls.Add(this.progressBar);
             this.pnl_Control.Controls.Add(this.txtb_Player);
@@ -168,15 +168,16 @@
             this.pnl_Control.Size = new System.Drawing.Size(269, 239);
             this.pnl_Control.TabIndex = 10;
             // 
-            // btn_Connect
+            // button1
             // 
-            this.btn_Connect.Location = new System.Drawing.Point(35, 98);
-            this.btn_Connect.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_Connect.Name = "btn_Connect";
-            this.btn_Connect.Size = new System.Drawing.Size(108, 34);
-            this.btn_Connect.TabIndex = 4;
-            this.btn_Connect.Text = "Connect";
-            this.btn_Connect.UseVisualStyleBackColor = true;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(31, 118);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(203, 84);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "NEW GAME";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // picb_IconXO
             // 
@@ -203,7 +204,7 @@
             this.txtb_Player.Location = new System.Drawing.Point(3, 14);
             this.txtb_Player.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtb_Player.Name = "txtb_Player";
-            this.txtb_Player.Size = new System.Drawing.Size(171, 22);
+            this.txtb_Player.Size = new System.Drawing.Size(169, 22);
             this.txtb_Player.TabIndex = 0;
             // 
             // timerCountDown
@@ -220,7 +221,7 @@
             this.Controls.Add(this.menu);
             this.Controls.Add(this.pnl_Control);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PlayVsComputer";
             this.Text = "PlayVsComputer";
             this.pnl_Logo.ResumeLayout(false);
@@ -249,10 +250,10 @@
         private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.Panel pnl_Control;
-        private System.Windows.Forms.Button btn_Connect;
         private System.Windows.Forms.PictureBox picb_IconXO;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.TextBox txtb_Player;
         private System.Windows.Forms.Timer timerCountDown;
+        private System.Windows.Forms.Button button1;
     }
 }

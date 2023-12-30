@@ -7,12 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Windows;
 
 namespace Game_Caro
 {
     public partial class PlayVsComputer : Form
     {
-        private Button[,] Map;
+        private System.Windows.Forms.Button[,] Map;
         private static int columns, rows;
 
         private int player;
@@ -39,7 +42,7 @@ namespace Game_Caro
             vsComputer = false;
             gameover = false;
             player = 1;
-            Map = new Button[rows + 2, columns + 2];
+            Map = new System.Windows.Forms.Button[rows + 2, columns + 2];
             vtMap = new int[rows + 2, columns + 2];
             chesses = new Stack<Chess>();
             InitializeComponent();
@@ -52,11 +55,11 @@ namespace Game_Caro
             for (int i = 2; i <= rows; i++)
                 for (int j = 1; j <= columns; j++)
                 {
-                    Map[i, j] = new Button();
+                    Map[i, j] = new System.Windows.Forms.Button();
                     Map[i, j].Parent = pnl_ChessBoard;
                     Map[i, j].Top = i * Contain.edgeChess;
                     Map[i, j].Left = j * Contain.edgeChess;
-                    Map[i, j].Size = new Size(Contain.edgeChess - 1, Contain.edgeChess - 1);
+                    Map[i, j].Size = new System.Drawing.Size(Contain.edgeChess - 1, Contain.edgeChess - 1);
                     Map[i, j].BackColor = Color.Snow;
 
                     Map[i, j].MouseLeave += pnl_ChessBoard_MouseLeave;
@@ -96,7 +99,7 @@ namespace Game_Caro
         private void menuQuit_Click_1(object sender, EventArgs e)
         {
             DialogResult dialog;
-            dialog = MessageBox.Show("Bạn có chắc muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            dialog = MessageBox.Show("Do you want to exit this cute game?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialog == DialogResult.Yes)
             {
                 this.Dispose();
@@ -116,7 +119,7 @@ namespace Game_Caro
             txtb_Player.Text = "Player";
             menu.Parent = pnl_ChessBoard;
             player = 1;
-            Map = new Button[rows + 2, columns + 2];
+            Map = new System.Windows.Forms.Button[rows + 2, columns + 2];
             vtMap = new int[rows + 2, columns + 2];
             chesses = new Stack<Chess>();
 
@@ -228,6 +231,8 @@ namespace Game_Caro
 
         private int[] Attack = new int[7] { 0, 9, 54, 162, 1458, 13112, 118008 };
         private int[] Defense = new int[7] { 0, 3, 27, 99, 729, 6561, 59049 };
+
+        public object ChessBoard { get; private set; }
 
         private void PutChess(int x, int y)
         {
@@ -367,7 +372,7 @@ namespace Game_Caro
         {
             if (gameover)
                 return;
-            Button lb = (Button)sender;
+            System.Windows.Forms.Button lb = (System.Windows.Forms.Button)sender;
             int x = lb.Top / Contain.edgeChess - 1, y = lb.Left / Contain.edgeChess;
 
             if (vsComputer)
@@ -477,36 +482,49 @@ namespace Game_Caro
             if (row == 2 && ediagonal == 2 && se == 1 && se_ == 1 && sr == 1 && sr_ == 1) column = 3;
             if (ediagonal == 2 && mdiagonal == 2 && sm == 1 && sm_ == 1 && se == 1 && se_ == 1) column = 3;
             long Sum = Defense[row] + Defense[column] + Defense[mdiagonal] + Defense[ediagonal];
-
             return Sum;
+        }
+
+
+        void NewGame()
+        {
+            progressBar.Value = 0;
+            timerCountDown.Stop();
+            undoToolStripMenuItem.Enabled = true;
+            BuildTable();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           this.PlayWithComputer(sender,e);
         }
         #endregion
 
-/*        private void playWithFriendToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Game_Caro game_Caro = new Game_Caro();
-            game_Caro.ShowDialog();
-            this.Close();
-        }
+        /*        private void playWithFriendToolStripMenuItem_Click(object sender, EventArgs e)
+                {
+                    this.Hide();
+                    Game_Caro game_Caro = new Game_Caro();
+                    game_Caro.ShowDialog();
+                    this.Close();
+                }
 
-        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+                private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+                {
 
-        }*/
+                }*/
 
         public class Chess
         {
-            public Button lb;
+            public System.Windows.Forms.Button lb;
             public int X;
             public int Y;
             public Chess()
             {
-                lb = new Button();
+                lb = new System.Windows.Forms.Button ();
             }
-            public Chess(Button _lb, int x, int y)
+            public Chess(System.Windows.Forms.Button _lb, int x, int y)
             {
-                lb = new Button();
+                lb = new System.Windows.Forms.Button();
                 lb = _lb;
                 X = x;
                 Y = y;
@@ -515,3 +533,4 @@ namespace Game_Caro
 
     }
 }
+
