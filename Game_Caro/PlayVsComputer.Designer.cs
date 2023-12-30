@@ -58,10 +58,10 @@
             // 
             this.pnl_Logo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_Logo.Controls.Add(this.picb_Logo);
-            this.pnl_Logo.Location = new System.Drawing.Point(781, 76);
+            this.pnl_Logo.Location = new System.Drawing.Point(879, 95);
             this.pnl_Logo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnl_Logo.Name = "pnl_Logo";
-            this.pnl_Logo.Size = new System.Drawing.Size(268, 224);
+            this.pnl_Logo.Size = new System.Drawing.Size(302, 280);
             this.pnl_Logo.TabIndex = 9;
             // 
             // picb_Logo
@@ -70,17 +70,17 @@
             this.picb_Logo.Location = new System.Drawing.Point(0, -2);
             this.picb_Logo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picb_Logo.Name = "picb_Logo";
-            this.picb_Logo.Size = new System.Drawing.Size(269, 224);
+            this.picb_Logo.Size = new System.Drawing.Size(303, 280);
             this.picb_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picb_Logo.TabIndex = 0;
             this.picb_Logo.TabStop = false;
             // 
             // pnl_ChessBoard
             // 
-            this.pnl_ChessBoard.Location = new System.Drawing.Point(0, 32);
+            this.pnl_ChessBoard.Location = new System.Drawing.Point(0, 40);
             this.pnl_ChessBoard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnl_ChessBoard.Name = "pnl_ChessBoard";
-            this.pnl_ChessBoard.Size = new System.Drawing.Size(732, 619);
+            this.pnl_ChessBoard.Size = new System.Drawing.Size(824, 774);
             this.pnl_ChessBoard.TabIndex = 4;
             this.pnl_ChessBoard.Click += new System.EventHandler(this.pnl_ChessBoard_Click);
             this.pnl_ChessBoard.MouseEnter += new System.EventHandler(this.pnl_ChessBoard_MouseEnter);
@@ -88,21 +88,22 @@
             // 
             // menu
             // 
+            this.menu.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menu.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.homeToolStripMenuItem,
             this.menuToolStripMenuItem});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
-            this.menu.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menu.Size = new System.Drawing.Size(1141, 28);
+            this.menu.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
+            this.menu.Size = new System.Drawing.Size(1284, 33);
             this.menu.TabIndex = 11;
             this.menu.Text = "menuStrip1";
             // 
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(77, 29);
             this.homeToolStripMenuItem.Text = "Home";
             // 
             // menuToolStripMenuItem
@@ -112,7 +113,7 @@
             this.undoToolStripMenuItem,
             this.quitToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(73, 29);
             this.menuToolStripMenuItem.Text = "Menu";
             // 
             // newGameToolStripMenuItem
@@ -121,20 +122,20 @@
             this.playWithFriendToolStripMenuItem,
             this.playWithComputerToolStripMenuItem});
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(219, 34);
             this.newGameToolStripMenuItem.Text = "New Game";
             // 
             // playWithFriendToolStripMenuItem
             // 
             this.playWithFriendToolStripMenuItem.Name = "playWithFriendToolStripMenuItem";
             this.playWithFriendToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.playWithFriendToolStripMenuItem.Size = new System.Drawing.Size(247, 26);
+            this.playWithFriendToolStripMenuItem.Size = new System.Drawing.Size(299, 34);
             this.playWithFriendToolStripMenuItem.Text = "Play with friend";
             // 
             // playWithComputerToolStripMenuItem
             // 
             this.playWithComputerToolStripMenuItem.Name = "playWithComputerToolStripMenuItem";
-            this.playWithComputerToolStripMenuItem.Size = new System.Drawing.Size(247, 26);
+            this.playWithComputerToolStripMenuItem.Size = new System.Drawing.Size(299, 34);
             this.playWithComputerToolStripMenuItem.Text = "Play with Computer";
             this.playWithComputerToolStripMenuItem.Click += new System.EventHandler(this.PlayWithComputer);
             // 
@@ -142,7 +143,7 @@
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(219, 34);
             this.undoToolStripMenuItem.Text = "Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.menuUndo_Click);
             // 
@@ -150,7 +151,7 @@
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
             this.quitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(219, 34);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.menuQuit_Click_1);
             // 
@@ -162,18 +163,19 @@
             this.pnl_Control.Controls.Add(this.picb_IconXO);
             this.pnl_Control.Controls.Add(this.progressBar);
             this.pnl_Control.Controls.Add(this.txtb_Player);
-            this.pnl_Control.Location = new System.Drawing.Point(777, 321);
+            this.pnl_Control.Location = new System.Drawing.Point(874, 401);
             this.pnl_Control.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnl_Control.Name = "pnl_Control";
-            this.pnl_Control.Size = new System.Drawing.Size(269, 239);
+            this.pnl_Control.Size = new System.Drawing.Size(303, 299);
             this.pnl_Control.TabIndex = 10;
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(31, 118);
+            this.button1.Location = new System.Drawing.Point(35, 148);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(203, 84);
+            this.button1.Size = new System.Drawing.Size(228, 105);
             this.button1.TabIndex = 5;
             this.button1.Text = "NEW GAME";
             this.button1.UseVisualStyleBackColor = true;
@@ -181,30 +183,30 @@
             // 
             // picb_IconXO
             // 
-            this.picb_IconXO.Location = new System.Drawing.Point(181, 14);
+            this.picb_IconXO.Location = new System.Drawing.Point(204, 18);
             this.picb_IconXO.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picb_IconXO.Name = "picb_IconXO";
-            this.picb_IconXO.Size = new System.Drawing.Size(87, 71);
+            this.picb_IconXO.Size = new System.Drawing.Size(98, 89);
             this.picb_IconXO.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picb_IconXO.TabIndex = 3;
             this.picb_IconXO.TabStop = false;
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(3, 39);
+            this.progressBar.Location = new System.Drawing.Point(3, 49);
             this.progressBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.progressBar.Maximum = 20000;
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(169, 21);
+            this.progressBar.Size = new System.Drawing.Size(190, 26);
             this.progressBar.Step = 100;
             this.progressBar.TabIndex = 1;
             // 
             // txtb_Player
             // 
-            this.txtb_Player.Location = new System.Drawing.Point(3, 14);
+            this.txtb_Player.Location = new System.Drawing.Point(3, 18);
             this.txtb_Player.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtb_Player.Name = "txtb_Player";
-            this.txtb_Player.Size = new System.Drawing.Size(169, 22);
+            this.txtb_Player.Size = new System.Drawing.Size(190, 26);
             this.txtb_Player.TabIndex = 0;
             // 
             // timerCountDown
@@ -213,17 +215,18 @@
             // 
             // PlayVsComputer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1141, 665);
+            this.ClientSize = new System.Drawing.Size(1284, 831);
             this.Controls.Add(this.pnl_Logo);
             this.Controls.Add(this.pnl_ChessBoard);
             this.Controls.Add(this.menu);
             this.Controls.Add(this.pnl_Control);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "PlayVsComputer";
             this.Text = "PlayVsComputer";
+            this.Load += new System.EventHandler(this.PlayVsComputer_Load);
             this.pnl_Logo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picb_Logo)).EndInit();
             this.menu.ResumeLayout(false);

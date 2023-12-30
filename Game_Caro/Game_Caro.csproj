@@ -297,11 +297,6 @@
       <DependentUpon>LogIn.cs</DependentUpon>
     </Compile>
     <Compile Include="Player.cs" />
-    <Compile Include="PLAYERMANAGEMENTDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PLAYERMANAGEMENTDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="PlayInfo.cs" />
     <Compile Include="PlayVsComputer.cs">
       <SubType>Form</SubType>
@@ -346,17 +341,6 @@
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
-    <None Include="PLAYERMANAGEMENTDataSet.xsc">
-      <DependentUpon>PLAYERMANAGEMENTDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="PLAYERMANAGEMENTDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PLAYERMANAGEMENTDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="PLAYERMANAGEMENTDataSet.xss">
-      <DependentUpon>PLAYERMANAGEMENTDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

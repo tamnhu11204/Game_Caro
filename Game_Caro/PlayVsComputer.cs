@@ -10,11 +10,16 @@ using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Windows;
+using FireSharp.Config;
+using FireSharp.Interfaces;
+using FireSharp.Response;
+using Newtonsoft.Json;
 
 namespace Game_Caro
 {
     public partial class PlayVsComputer : Form
     {
+        public string Username;
         private System.Windows.Forms.Button[,] Map;
         private static int columns, rows;
 
@@ -34,7 +39,7 @@ namespace Game_Caro
         private System.Windows.Forms.ProgressBar prcbCoolDown;
         private System.Windows.Forms.TextBox txbPlayerName;
         private System.Windows.Forms.Label label1;
-        public PlayVsComputer()
+        public PlayVsComputer(string username)
         {
             columns = 20;
             rows = 17;
@@ -47,9 +52,16 @@ namespace Game_Caro
             chesses = new Stack<Chess>();
             InitializeComponent();
 
+            this.Username = username;
+
             BuildTable();
         }
-
+        IFirebaseConfig config = new FirebaseConfig
+        {
+            AuthSecret = "ZSYPCgwNgtDZLgNkwTsJyN6Z6tc6IKfG8gJNJL6S",
+            BasePath = "https://game-caro-f1c0c-default-rtdb.firebaseio.com/"
+        };
+        IFirebaseClient client;
         private void BuildTable()
         {
             for (int i = 2; i <= rows; i++)
@@ -159,7 +171,7 @@ namespace Game_Caro
             }
         }
 
-        private void Check(int x, int y)
+        private async void Check(int x, int y)
         {
             int i = x - 1, j = y;
             int column = 1, row = 1, mdiagonal = 1, ediagonal = 1;
@@ -214,15 +226,31 @@ namespace Game_Caro
                 i++;
                 j--;
             }
+
+            FirebaseResponse res = await client.GetAsync(@"Player " + Username);
+            tbPlayer pl= new tbPlayer();
+            Dictionary<string, string> data = JsonConvert.DeserializeObject<Dictionary<string, string>>(res.Body.ToString());
+            pl.Password = data.ElementAt(3).Value;
+            pl.Age = int.Parse(data.ElementAt(0).Value);
+            pl.Fullname = data.ElementAt(1).Value;
+            pl.Username = data.ElementAt(4).Value;
+
             if (row >= 5 || column >= 5 || mdiagonal >= 5 || ediagonal >= 5)
             {
                 Gameover();
                 if (player == 1)
+                {
+                    pl.Win = int.Parse(data.ElementAt(5).Value)+1;
+                    pl.Lose = int.Parse(data.ElementAt(2).Value);
                     MessageBox.Show("You win!!");
+                }
                 else
+                {
+                    pl.Win = int.Parse(data.ElementAt(5).Value) ;
+                    pl.Lose = int.Parse(data.ElementAt(2).Value)+1;
                     MessageBox.Show("You lost!!");
-
-
+                }
+                var update =await client.UpdateAsync(@"Player " + pl.Username, pl);
             }
 
         }
@@ -495,20 +523,33 @@ namespace Game_Caro
         {
            this.PlayWithComputer(sender,e);
         }
+
+        private void PlayVsComputer_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                client = new FireSharp.FirebaseClient(config);
+            }
+
+            catch
+            {
+                MessageBox.Show("No Internet or Connection Problem");
+            }
+        }
         #endregion
 
-        /*        private void playWithFriendToolStripMenuItem_Click(object sender, EventArgs e)
-                {
-                    this.Hide();
-                    Game_Caro game_Caro = new Game_Caro();
-                    game_Caro.ShowDialog();
-                    this.Close();
-                }
+        private void playWithFriendToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Game_Caro game_Caro = new Game_Caro(Username);
+            game_Caro.ShowDialog();
+            this.Close();
+        }
 
-                private void homeToolStripMenuItem_Click(object sender, EventArgs e)
-                {
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
 
-                }*/
+        }
 
         public class Chess
         {

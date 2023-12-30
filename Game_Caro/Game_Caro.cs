@@ -250,8 +250,6 @@ namespace Game_Caro
                 case (int)SocketCommand.TIME_OUT:
                     MessageBox.Show("Time's up");
                     break;
-
-
                 case (int)SocketCommand.QUIT:
                     timerCountDown.Stop();
                     MessageBox.Show("Player is quit");
@@ -278,7 +276,7 @@ namespace Game_Caro
         private void playWithComputerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            PlayVsComputer playVsComputer = new PlayVsComputer();
+            PlayVsComputer playVsComputer = new PlayVsComputer(Username);
             playVsComputer.ShowDialog();
             this.Close();
         }
