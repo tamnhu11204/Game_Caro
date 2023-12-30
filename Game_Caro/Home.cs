@@ -45,6 +45,7 @@ namespace Game_Caro
         }
         private async void ShowInfo()
         {
+<<<<<<< HEAD
             FirebaseResponse res;
             try
             {
@@ -62,6 +63,24 @@ namespace Game_Caro
                 MessageBox.Show(ex.Message);
                 return;
             }
+=======
+            FirebaseResponse res = client.Get(@"Player/" + txb_Username.Text);
+            tbPlayer pl = res.ResultAs<tbPlayer>();
+            if (pl != null)
+            {
+                txb_Password.Text = pl.Password;
+                txb_Age.Text = pl.Age.ToString();
+                txb_Fullname.Text = pl.Fullname;
+                txb_Win.Text = pl.Win.ToString();
+            }
+            else
+            {
+                // Xử lý trường hợp pl là null ở đây
+                MessageBox.Show("No player information found for the given username.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+>>>>>>> f7556e4aca43395e8bc32cbd38deaea66f58585d
         }
         private void btn_PlayGame_Click(object sender, EventArgs e)
         {

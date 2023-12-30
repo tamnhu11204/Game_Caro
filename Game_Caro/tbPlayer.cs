@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Game_Caro
 {
-    internal class tbPlayer
+    public class tbPlayer
     {
         public string Username {  get; set; }
         public string Password { get; set; }
