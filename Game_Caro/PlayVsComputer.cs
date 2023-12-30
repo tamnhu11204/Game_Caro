@@ -42,7 +42,6 @@ namespace Game_Caro
             Map = new Button[rows + 2, columns + 2];
             vtMap = new int[rows + 2, columns + 2];
             chesses = new Stack<Chess>();
-
             InitializeComponent();
 
             BuildTable();
