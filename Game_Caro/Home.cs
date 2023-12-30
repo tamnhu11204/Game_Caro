@@ -1,12 +1,14 @@
 ﻿using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.RightsManagement;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,8 +21,8 @@ namespace Game_Caro
         public Home(string username)
         {
             InitializeComponent();
-            Username = username;
-            txb_Username.Text = Username;
+            this.Username = username;
+            
         }
         IFirebaseConfig config = new FirebaseConfig
         {
@@ -28,8 +30,7 @@ namespace Game_Caro
             BasePath = "https://game-caro-f1c0c-default-rtdb.firebaseio.com/"
         };
         IFirebaseClient client;
-
-        private void LogIn_Load(object sender, EventArgs e)
+        private void Home_Load(object sender, EventArgs e)
         {
             try
             {
@@ -40,21 +41,32 @@ namespace Game_Caro
             {
                 MessageBox.Show("No Internet or Connection Problem");
             }
+            ShowInfo();
         }
-        private void ShowInfo()
+        private async void ShowInfo()
         {
-            FirebaseResponse res = client.Get(@"Player/" + txb_Username);
-            tbPlayer pl = res.ResultAs<tbPlayer>();
-            txb_Password.Text = pl.Password;
-            txb_Age.Text=pl.Age.ToString();
-            txb_Fullname.Text = pl.Fullname;
-            txb_Win.Text = pl.Win.ToString();
-            txb_Lose.Text = pl.Lose.ToString();
+            FirebaseResponse res;
+            try
+            {
+                res = await client.GetAsync(@"Player " + Username);
+                Dictionary<string, string> data = JsonConvert.DeserializeObject<Dictionary<string, string>>(res.Body.ToString());
+                txb_Password.Text = data.ElementAt(3).Value;
+                txb_Age.Text = data.ElementAt(0).Value;
+                txb_Fullname.Text = data.ElementAt(1).Value;
+                txb_Username.Text = data.ElementAt(4).Value;
+                txb_Win.Text = data.ElementAt(5).Value;
+                txb_Lose.Text = data.ElementAt(2).Value;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
         }
         private void btn_PlayGame_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Game_Caro g=new Game_Caro(Username);
+            Game_Caro g=new Game_Caro(txb_Username.Text);
             g.ShowDialog();
             this.Close();
         }
@@ -73,11 +85,28 @@ namespace Game_Caro
                 this.Close();
             }
         }
-
-        private void Home_Load(object sender, EventArgs e)
+        /*async void LiveCall()
         {
-            
-            ShowInfo();
-        }
+            txb_Username.Text = Username;
+            while(true)
+            {
+                
+                if (txb_Username.Text != null)
+                {
+                    FirebaseResponse res = await client.GetAsync(@"Player {0}" + txb_Username.Text);
+                    tbPlayer pl=res.ResultAs<tbPlayer>();
+                    txb_Age.Text=pl.Age.ToString();
+                    txb_Fullname.Text=pl.Fullname;
+                    txb_Lose.Text=pl.Lose.ToString();
+                    txb_Win.Text=pl.Win.ToString();
+                    txb_Password.Text=pl.Password;
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Loi");
+                }    
+            }
+        }*/
     }
 }

@@ -390,9 +390,6 @@ namespace Game_Caro
         {
             if (gameover)
                 return;
-
-
-
         }
 
         private long EnemyChesses(int x, int y)

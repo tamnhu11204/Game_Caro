@@ -50,7 +50,7 @@ namespace Game_Caro
                 return;
             }
             #endregion
-            FirebaseResponse res =client.Get(@"Player/"+txb_Username.Text);
+            FirebaseResponse res =client.Get(@"Player "+txb_Username.Text);
                 tbPlayer ResUser=res.ResultAs<tbPlayer>();
 
                 tbPlayer CurUser = new tbPlayer() 
@@ -62,7 +62,7 @@ namespace Game_Caro
                 if(tbPlayer.IsEqual(ResUser,CurUser))
                 {
                     this.Hide();
-                    Home h = new Home(ResUser.Username);
+                    Home h = new Home(CurUser.Username);
 
                     h.ShowDialog();
                     this.Close();

@@ -64,15 +64,15 @@ namespace Game_Caro
                     Lose=0
                 };
 
-                SetResponse set = client.Set(@"Player/" + txb_Username.Text, user);
+                SetResponse set = client.Set(@"Player " + txb_Username.Text, user);
 
                 if (set.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     MessageBox.Show($"Successfully registered {txb_Username.Text}!", "Information!");
-                    this.Hide();
+                    /*this.Hide();
                     LogIn l=new LogIn();
                     l.ShowDialog();
-                    this.Close();
+                    this.Close();*/
                 }
 
         }
