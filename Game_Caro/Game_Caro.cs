@@ -26,6 +26,12 @@ namespace Game_Caro
         ChessBoardManager ChessBoard;
 
         SocketManager socket;
+        IFirebaseConfig config = new FirebaseConfig
+        {
+            AuthSecret = "ZSYPCgwNgtDZLgNkwTsJyN6Z6tc6IKfG8gJNJL6S",
+            BasePath = "https://game-caro-f1c0c-default-rtdb.firebaseio.com/"
+        };
+        IFirebaseClient client;
         #endregion
         public Game_Caro(string username)
         {
@@ -275,6 +281,19 @@ namespace Game_Caro
             PlayVsComputer playVsComputer = new PlayVsComputer();
             playVsComputer.ShowDialog();
             this.Close();
+        }
+
+        private void Game_Caro_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                client = new FireSharp.FirebaseClient(config);
+            }
+
+            catch
+            {
+                MessageBox.Show("No Internet or Connection Problem");
+            }
         }
     }
 }
