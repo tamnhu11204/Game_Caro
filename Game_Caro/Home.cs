@@ -43,13 +43,22 @@ namespace Game_Caro
         }
         private void ShowInfo()
         {
-            FirebaseResponse res = client.Get(@"Player/" + txb_Username);
+            FirebaseResponse res = client.Get(@"Player/" + txb_Username.Text);
             tbPlayer pl = res.ResultAs<tbPlayer>();
-            txb_Password.Text = pl.Password;
-            txb_Age.Text=pl.Age.ToString();
-            txb_Fullname.Text = pl.Fullname;
-            txb_Win.Text = pl.Win.ToString();
-            txb_Lose.Text = pl.Lose.ToString();
+            if (pl != null)
+            {
+                txb_Password.Text = pl.Password;
+                txb_Age.Text = pl.Age.ToString();
+                txb_Fullname.Text = pl.Fullname;
+                txb_Win.Text = pl.Win.ToString();
+            }
+            else
+            {
+                // Xử lý trường hợp pl là null ở đây
+                MessageBox.Show("No player information found for the given username.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
         }
         private void btn_PlayGame_Click(object sender, EventArgs e)
         {

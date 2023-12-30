@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.pnl_Logo = new System.Windows.Forms.Panel();
+            this.picb_Logo = new System.Windows.Forms.PictureBox();
             this.pnl_ChessBoard = new System.Windows.Forms.Panel();
             this.menu = new System.Windows.Forms.MenuStrip();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,15 +42,14 @@
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnl_Control = new System.Windows.Forms.Panel();
             this.btn_Connect = new System.Windows.Forms.Button();
+            this.picb_IconXO = new System.Windows.Forms.PictureBox();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.txtb_Player = new System.Windows.Forms.TextBox();
             this.timerCountDown = new System.Windows.Forms.Timer(this.components);
-            this.picb_Logo = new System.Windows.Forms.PictureBox();
-            this.picb_IconXO = new System.Windows.Forms.PictureBox();
             this.pnl_Logo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picb_Logo)).BeginInit();
             this.menu.SuspendLayout();
             this.pnl_Control.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picb_Logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picb_IconXO)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,12 +63,23 @@
             this.pnl_Logo.Size = new System.Drawing.Size(201, 182);
             this.pnl_Logo.TabIndex = 9;
             // 
+            // picb_Logo
+            // 
+            this.picb_Logo.Image = global::Game_Caro.Properties.Resources.LogoCaro;
+            this.picb_Logo.Location = new System.Drawing.Point(0, -2);
+            this.picb_Logo.Margin = new System.Windows.Forms.Padding(2);
+            this.picb_Logo.Name = "picb_Logo";
+            this.picb_Logo.Size = new System.Drawing.Size(202, 182);
+            this.picb_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picb_Logo.TabIndex = 0;
+            this.picb_Logo.TabStop = false;
+            // 
             // pnl_ChessBoard
             // 
-            this.pnl_ChessBoard.Location = new System.Drawing.Point(11, 26);
+            this.pnl_ChessBoard.Location = new System.Drawing.Point(0, 26);
             this.pnl_ChessBoard.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_ChessBoard.Name = "pnl_ChessBoard";
-            this.pnl_ChessBoard.Size = new System.Drawing.Size(500, 523);
+            this.pnl_ChessBoard.Size = new System.Drawing.Size(549, 503);
             this.pnl_ChessBoard.TabIndex = 4;
             this.pnl_ChessBoard.Click += new System.EventHandler(this.pnl_ChessBoard_Click);
             this.pnl_ChessBoard.MouseEnter += new System.EventHandler(this.pnl_ChessBoard_MouseEnter);
@@ -109,7 +120,7 @@
             this.playWithFriendToolStripMenuItem,
             this.playWithComputerToolStripMenuItem});
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.newGameToolStripMenuItem.Text = "New Game";
             // 
             // playWithFriendToolStripMenuItem
@@ -130,7 +141,7 @@
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.undoToolStripMenuItem.Text = "Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.menuUndo_Click);
             // 
@@ -138,7 +149,7 @@
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
             this.quitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.menuQuit_Click_1);
             // 
@@ -166,6 +177,16 @@
             this.btn_Connect.Text = "Connect";
             this.btn_Connect.UseVisualStyleBackColor = true;
             // 
+            // picb_IconXO
+            // 
+            this.picb_IconXO.Location = new System.Drawing.Point(136, 11);
+            this.picb_IconXO.Margin = new System.Windows.Forms.Padding(2);
+            this.picb_IconXO.Name = "picb_IconXO";
+            this.picb_IconXO.Size = new System.Drawing.Size(65, 58);
+            this.picb_IconXO.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picb_IconXO.TabIndex = 3;
+            this.picb_IconXO.TabStop = false;
+            // 
             // progressBar
             // 
             this.progressBar.Location = new System.Drawing.Point(2, 32);
@@ -188,27 +209,6 @@
             // 
             this.timerCountDown.Tick += new System.EventHandler(this.tmCooldown_Tick);
             // 
-            // picb_Logo
-            // 
-            this.picb_Logo.Image = global::Game_Caro.Properties.Resources.LogoCaro;
-            this.picb_Logo.Location = new System.Drawing.Point(0, -2);
-            this.picb_Logo.Margin = new System.Windows.Forms.Padding(2);
-            this.picb_Logo.Name = "picb_Logo";
-            this.picb_Logo.Size = new System.Drawing.Size(202, 182);
-            this.picb_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picb_Logo.TabIndex = 0;
-            this.picb_Logo.TabStop = false;
-            // 
-            // picb_IconXO
-            // 
-            this.picb_IconXO.Location = new System.Drawing.Point(136, 11);
-            this.picb_IconXO.Margin = new System.Windows.Forms.Padding(2);
-            this.picb_IconXO.Name = "picb_IconXO";
-            this.picb_IconXO.Size = new System.Drawing.Size(65, 58);
-            this.picb_IconXO.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picb_IconXO.TabIndex = 3;
-            this.picb_IconXO.TabStop = false;
-            // 
             // PlayVsComputer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,11 +221,11 @@
             this.Name = "PlayVsComputer";
             this.Text = "PlayVsComputer";
             this.pnl_Logo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picb_Logo)).EndInit();
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
             this.pnl_Control.ResumeLayout(false);
             this.pnl_Control.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picb_Logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picb_IconXO)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

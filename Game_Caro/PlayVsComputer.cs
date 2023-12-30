@@ -63,6 +63,7 @@ namespace Game_Caro
                     Map[i, j].MouseLeave += pnl_ChessBoard_MouseLeave;
                     Map[i, j].MouseEnter += pnl_ChessBoard_MouseEnter;
                     Map[i, j].Click += pnl_ChessBoard_Click;
+
                 }
         }
 
