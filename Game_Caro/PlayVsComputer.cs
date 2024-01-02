@@ -111,7 +111,7 @@ namespace Game_Caro
         private void menuQuit_Click_1(object sender, EventArgs e)
         {
             DialogResult dialog;
-            dialog = MessageBox.Show("Do you want to exit this cute game?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            dialog = MessageBox.Show("Are you sure you want to quit this cute game?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialog == DialogResult.No)
             {
                 /*this.Dispose();

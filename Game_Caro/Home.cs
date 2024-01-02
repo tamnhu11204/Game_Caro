@@ -85,28 +85,82 @@ namespace Game_Caro
                 this.Close();
             }
         }
-        /*async void LiveCall()
+
+        private async void btn_Update_Click(object sender, EventArgs e)
         {
-            txb_Username.Text = Username;
-            while(true)
+            try
             {
-                
-                if (txb_Username.Text != null)
-                {
-                    FirebaseResponse res = await client.GetAsync(@"Player {0}" + txb_Username.Text);
-                    tbPlayer pl=res.ResultAs<tbPlayer>();
-                    txb_Age.Text=pl.Age.ToString();
-                    txb_Fullname.Text=pl.Fullname;
-                    txb_Lose.Text=pl.Lose.ToString();
-                    txb_Win.Text=pl.Win.ToString();
-                    txb_Password.Text=pl.Password;
-                    
-                }
-                else
-                {
-                    MessageBox.Show("Loi");
-                }    
+                FirebaseResponse res = await client.GetAsync(@"Player " + Username);
+                tbPlayer pl = new tbPlayer();
+                Dictionary<string, string> data = JsonConvert.DeserializeObject<Dictionary<string, string>>(res.Body.ToString());
+                pl.Password = txb_Password.Text;
+                pl.Age = int.Parse(txb_Age.Text);
+                pl.Fullname = txb_Fullname.Text;
+                pl.Username = data.ElementAt(4).Value;
+                pl.Win = int.Parse(data.ElementAt(5).Value);
+                pl.Lose = int.Parse(data.ElementAt(2).Value);
+                var update = await client.UpdateAsync(@"Player " + pl.Username, pl);
+                MessageBox.Show("Update successfully! ");
             }
-        }*/
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private async void btn_Delete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FirebaseResponse res = await client.GetAsync(@"Player " + Username);
+                tbPlayer pl = new tbPlayer();
+                Dictionary<string, string> data = JsonConvert.DeserializeObject<Dictionary<string, string>>(res.Body.ToString());
+                pl.Password = txb_Password.Text;
+                pl.Age = int.Parse(txb_Age.Text);
+                pl.Fullname = txb_Fullname.Text;
+                pl.Username = data.ElementAt(4).Value;
+                pl.Win = int.Parse(data.ElementAt(5).Value);
+                pl.Lose = int.Parse(data.ElementAt(2).Value);
+
+                DialogResult dialog;
+                dialog = MessageBox.Show("Are you sure you want to delete this account ?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialog == DialogResult.Yes)
+                {
+                    var delete = await client.DeleteAsync(@"Player " + pl.Username);
+                    MessageBox.Show("Delete successfully! ");
+                    this.Hide();
+                    LogIn l=new LogIn();
+                    l.ShowDialog();
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        /*async void LiveCall()
+{
+txb_Username.Text = Username;
+while(true)
+{
+
+if (txb_Username.Text != null)
+{
+  FirebaseResponse res = await client.GetAsync(@"Player {0}" + txb_Username.Text);
+  tbPlayer pl=res.ResultAs<tbPlayer>();
+  txb_Age.Text=pl.Age.ToString();
+  txb_Fullname.Text=pl.Fullname;
+  txb_Lose.Text=pl.Lose.ToString();
+  txb_Win.Text=pl.Win.ToString();
+  txb_Password.Text=pl.Password;
+
+}
+else
+{
+  MessageBox.Show("Loi");
+}    
+}
+}*/
     }
 }

@@ -45,6 +45,8 @@
             this.txb_Lose = new System.Windows.Forms.TextBox();
             this.btn_PlayGame = new System.Windows.Forms.Button();
             this.btn_LogOut = new System.Windows.Forms.Button();
+            this.btn_Update = new System.Windows.Forms.Button();
+            this.btn_Delete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_home)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,18 +111,18 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Image = ((System.Drawing.Image)(resources.GetObject("label5.Image")));
-            this.label5.Location = new System.Drawing.Point(552, 116);
+            this.label5.Location = new System.Drawing.Point(552, 170);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 25);
+            this.label5.Size = new System.Drawing.Size(52, 25);
             this.label5.TabIndex = 5;
-            this.label5.Text = "Win";
+            this.label5.Text = "Win ";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Image = ((System.Drawing.Image)(resources.GetObject("label6.Image")));
-            this.label6.Location = new System.Drawing.Point(663, 116);
+            this.label6.Location = new System.Drawing.Point(663, 170);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 25);
             this.label6.TabIndex = 6;
@@ -149,7 +151,6 @@
             // 
             this.txb_Fullname.Location = new System.Drawing.Point(193, 225);
             this.txb_Fullname.Name = "txb_Fullname";
-            this.txb_Fullname.ReadOnly = true;
             this.txb_Fullname.Size = new System.Drawing.Size(292, 26);
             this.txb_Fullname.TabIndex = 9;
             // 
@@ -157,7 +158,6 @@
             // 
             this.txb_Age.Location = new System.Drawing.Point(193, 278);
             this.txb_Age.Name = "txb_Age";
-            this.txb_Age.ReadOnly = true;
             this.txb_Age.Size = new System.Drawing.Size(70, 26);
             this.txb_Age.TabIndex = 10;
             // 
@@ -165,13 +165,12 @@
             // 
             this.txb_Password.Location = new System.Drawing.Point(193, 171);
             this.txb_Password.Name = "txb_Password";
-            this.txb_Password.ReadOnly = true;
             this.txb_Password.Size = new System.Drawing.Size(292, 26);
             this.txb_Password.TabIndex = 11;
             // 
             // txb_Win
             // 
-            this.txb_Win.Location = new System.Drawing.Point(557, 162);
+            this.txb_Win.Location = new System.Drawing.Point(557, 225);
             this.txb_Win.Name = "txb_Win";
             this.txb_Win.ReadOnly = true;
             this.txb_Win.Size = new System.Drawing.Size(42, 26);
@@ -179,7 +178,7 @@
             // 
             // txb_Lose
             // 
-            this.txb_Lose.Location = new System.Drawing.Point(668, 162);
+            this.txb_Lose.Location = new System.Drawing.Point(668, 225);
             this.txb_Lose.Name = "txb_Lose";
             this.txb_Lose.ReadOnly = true;
             this.txb_Lose.Size = new System.Drawing.Size(42, 26);
@@ -207,11 +206,35 @@
             this.btn_LogOut.UseVisualStyleBackColor = true;
             this.btn_LogOut.Click += new System.EventHandler(this.btn_LogOut_Click);
             // 
+            // btn_Update
+            // 
+            this.btn_Update.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Update.Location = new System.Drawing.Point(258, 375);
+            this.btn_Update.Name = "btn_Update";
+            this.btn_Update.Size = new System.Drawing.Size(96, 42);
+            this.btn_Update.TabIndex = 16;
+            this.btn_Update.Text = "Update";
+            this.btn_Update.UseVisualStyleBackColor = true;
+            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
+            // 
+            // btn_Delete
+            // 
+            this.btn_Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Delete.Location = new System.Drawing.Point(441, 375);
+            this.btn_Delete.Name = "btn_Delete";
+            this.btn_Delete.Size = new System.Drawing.Size(89, 42);
+            this.btn_Delete.TabIndex = 17;
+            this.btn_Delete.Text = "Delete";
+            this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_Delete);
+            this.Controls.Add(this.btn_Update);
             this.Controls.Add(this.btn_LogOut);
             this.Controls.Add(this.btn_PlayGame);
             this.Controls.Add(this.txb_Lose);
@@ -256,5 +279,7 @@
         private System.Windows.Forms.TextBox txb_Lose;
         private System.Windows.Forms.Button btn_PlayGame;
         private System.Windows.Forms.Button btn_LogOut;
+        private System.Windows.Forms.Button btn_Update;
+        private System.Windows.Forms.Button btn_Delete;
     }
 }

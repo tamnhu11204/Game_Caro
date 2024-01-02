@@ -15,6 +15,7 @@ using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
 using Newtonsoft.Json;
+using Firebase.Database.Query;
 
 namespace Game_Caro
 {
@@ -73,7 +74,7 @@ namespace Game_Caro
 
             Listen();
         }
-        async void UpdatePl1(string uname)
+        /*async void UpdatePl1(string uname)
         {
             FirebaseResponse res = await client.GetAsync(@"Player " + uname);
             tbPlayer pl = new tbPlayer();
@@ -98,12 +99,12 @@ namespace Game_Caro
             pl.Win = int.Parse(data.ElementAt(5).Value) ;
             pl.Lose = int.Parse(data.ElementAt(2).Value)+1;
             var update = await client.UpdateAsync(@"Player " + pl.Username, pl);
-        }
+        }*/
         void ChessBoard_EndedGame(object sender, EventArgs e)
         {
             EndGame();
 
-            int currentPlayer = ChessBoard.CurrentPlayer;
+            /*int currentPlayer = ChessBoard.CurrentPlayer;
             if(currentPlayer == 0)
             {
                 UpdatePl1(Username);
@@ -112,7 +113,7 @@ namespace Game_Caro
             else
             {
                 UpdatePl2(Username);
-            }
+            }*/
             socket.Send(new SocketData((int)SocketCommand.END_GAME, "", new Point()));
         }
 
@@ -127,7 +128,7 @@ namespace Game_Caro
 
         void Quit()
         {
-            DialogResult r = MessageBox.Show("Do you want to exit this cute game?", "Question?",
+            DialogResult r = MessageBox.Show("Are you sure you want to quit this cute game?", "Question?",
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question,
                         MessageBoxDefaultButton.Button1);
@@ -175,7 +176,7 @@ namespace Game_Caro
 
         private void Game_Caro_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(MessageBox.Show("Are you sure you want to quit?", "Confirmation",MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
+            if(MessageBox.Show("Are you sure you want to quit this cute game?", "Confirmation",MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
             {
                 e.Cancel = true;
             }    
