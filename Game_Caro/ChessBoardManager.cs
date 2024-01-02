@@ -99,6 +99,7 @@ namespace Game_Caro
                 new Player("Player1", Properties.Resources.IconX),
                 new Player("Player2", Properties.Resources.IconO)
             };
+
             playTimeLine = new Stack<PlayInfo>();
             CurrentPlayer = 0;
 

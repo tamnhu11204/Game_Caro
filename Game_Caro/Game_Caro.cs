@@ -14,7 +14,7 @@ using System.Windows.Forms;
 using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
-
+using Newtonsoft.Json;
 
 namespace Game_Caro
 {
@@ -73,7 +73,32 @@ namespace Game_Caro
 
             Listen();
         }
-
+        async void UpdatePl1(string uname)
+        {
+            FirebaseResponse res = await client.GetAsync(@"Player " + uname);
+            tbPlayer pl = new tbPlayer();
+            Dictionary<string, string> data = JsonConvert.DeserializeObject<Dictionary<string, string>>(res.Body.ToString());
+            pl.Password = data.ElementAt(3).Value;
+            pl.Age = int.Parse(data.ElementAt(0).Value);
+            pl.Fullname = data.ElementAt(1).Value;
+            pl.Username = data.ElementAt(4).Value;
+            pl.Win = int.Parse(data.ElementAt(5).Value)+1;
+            pl.Lose= int.Parse(data.ElementAt(2).Value);
+            var update = await client.UpdateAsync(@"Player " + pl.Username, pl);
+        }
+        async void UpdatePl2(string uname)
+        {
+            FirebaseResponse res = await client.GetAsync(@"Player " + uname);
+            tbPlayer pl = new tbPlayer();
+            Dictionary<string, string> data = JsonConvert.DeserializeObject<Dictionary<string, string>>(res.Body.ToString());
+            pl.Password = data.ElementAt(3).Value;
+            pl.Age = int.Parse(data.ElementAt(0).Value);
+            pl.Fullname = data.ElementAt(1).Value;
+            pl.Username = data.ElementAt(4).Value;
+            pl.Win = int.Parse(data.ElementAt(5).Value) ;
+            pl.Lose = int.Parse(data.ElementAt(2).Value)+1;
+            var update = await client.UpdateAsync(@"Player " + pl.Username, pl);
+        }
         void ChessBoard_EndedGame(object sender, EventArgs e)
         {
             EndGame();
@@ -81,7 +106,12 @@ namespace Game_Caro
             int currentPlayer = ChessBoard.CurrentPlayer;
             if(currentPlayer == 0)
             {
-
+                UpdatePl1(Username);
+                //UpdatePl2();
+            }
+            else
+            {
+                UpdatePl2(Username);
             }
             socket.Send(new SocketData((int)SocketCommand.END_GAME, "", new Point()));
         }
