@@ -42,7 +42,7 @@ namespace Game_Caro
         public PlayVsComputer(string username)
         {
             columns = 20;
-            rows = 17;
+            rows = 20;
 
             vsComputer = false;
             gameover = false;
@@ -112,10 +112,11 @@ namespace Game_Caro
         {
             DialogResult dialog;
             dialog = MessageBox.Show("Do you want to exit this cute game?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dialog == DialogResult.Yes)
+            if (dialog == DialogResult.No)
             {
-                this.Dispose();
-                this.Close();
+                /*this.Dispose();
+                this.Close();*/
+                Application.Exit();
             }
         }
 
@@ -159,14 +160,14 @@ namespace Game_Caro
             if (player == 1)
             {
                 player = 2;
-                txtb_Player.Text = "Player2";
+                //txtb_Player.Text = "Player2";
                 picb_IconXO.Image = Properties.Resources.IconX;
 
             }
             else
             {
                 player = 1;
-                txtb_Player.Text = "Player1";
+                //txtb_Player.Text = "Player1";
                 picb_IconXO.Image = Properties.Resources.IconO;
             }
         }
@@ -548,7 +549,10 @@ namespace Game_Caro
 
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            Home h = new Home(Username);
+            h.ShowDialog();
+            this.Close();
         }
 
         public class Chess

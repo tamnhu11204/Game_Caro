@@ -78,6 +78,11 @@ namespace Game_Caro
         {
             EndGame();
 
+            int currentPlayer = ChessBoard.CurrentPlayer;
+            if(currentPlayer == 0)
+            {
+
+            }
             socket.Send(new SocketData((int)SocketCommand.END_GAME, "", new Point()));
         }
 
@@ -200,7 +205,7 @@ namespace Game_Caro
                 }
                 catch(Exception e)
                 {
-                   
+                    
                 };
             });
 
@@ -240,7 +245,6 @@ namespace Game_Caro
                 case (int)SocketCommand.UNDO:
                     Undo();
                     progressBar.Value = 0; // reset processBar
-                   
                     break;
 
                 case (int)SocketCommand.END_GAME:

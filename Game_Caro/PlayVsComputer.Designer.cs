@@ -95,7 +95,6 @@
             this.menuToolStripMenuItem});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
-            this.menu.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
             this.menu.Size = new System.Drawing.Size(1284, 33);
             this.menu.TabIndex = 11;
             this.menu.Text = "menuStrip1";
@@ -105,6 +104,7 @@
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
             this.homeToolStripMenuItem.Size = new System.Drawing.Size(77, 29);
             this.homeToolStripMenuItem.Text = "Home";
+            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // menuToolStripMenuItem
             // 
@@ -122,7 +122,7 @@
             this.playWithFriendToolStripMenuItem,
             this.playWithComputerToolStripMenuItem});
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(219, 34);
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.newGameToolStripMenuItem.Text = "New Game";
             // 
             // playWithFriendToolStripMenuItem
@@ -131,6 +131,7 @@
             this.playWithFriendToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.playWithFriendToolStripMenuItem.Size = new System.Drawing.Size(299, 34);
             this.playWithFriendToolStripMenuItem.Text = "Play with friend";
+            this.playWithFriendToolStripMenuItem.Click += new System.EventHandler(this.playWithFriendToolStripMenuItem_Click);
             // 
             // playWithComputerToolStripMenuItem
             // 
@@ -143,7 +144,7 @@
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(219, 34);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.undoToolStripMenuItem.Text = "Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.menuUndo_Click);
             // 
@@ -151,7 +152,7 @@
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
             this.quitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(219, 34);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.menuQuit_Click_1);
             // 

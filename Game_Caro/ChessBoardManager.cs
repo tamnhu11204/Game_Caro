@@ -191,8 +191,6 @@ namespace Game_Caro
         private void Mark(Button btn)
         {
             btn.BackgroundImage = Player[CurrentPlayer].Mark;
-
-
         }
 
         private void ChangePlayer()
@@ -205,6 +203,7 @@ namespace Game_Caro
         {
             if (endedGame != null)
                 endedGame(this, new EventArgs());
+
         }
 
         public bool Undo()
