@@ -314,6 +314,8 @@ namespace Game_Caro
             PlayVsComputer playVsComputer = new PlayVsComputer(Username);
             playVsComputer.ShowDialog();
             this.Close();
+            playVsComputer.Check_pices();
+
         }
 
         private void Game_Caro_Load(object sender, EventArgs e)

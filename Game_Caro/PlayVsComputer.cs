@@ -120,7 +120,7 @@ namespace Game_Caro
             }
         }
 
-        private void PlayWithComputer(object sender, EventArgs e)
+        public void Check_pices()
         {
             vsComputer = true;
             gameover = false;
@@ -129,7 +129,7 @@ namespace Game_Caro
             pnl_ChessBoard.Controls.Clear();
 
             picb_IconXO.Image = Properties.Resources.IconO;
-            txtb_Player.Text = "Player";
+            txtb_Player.Text = Username;
             menu.Parent = pnl_ChessBoard;
             player = 1;
             Map = new System.Windows.Forms.Button[rows + 2, columns + 2];
@@ -137,6 +137,15 @@ namespace Game_Caro
             chesses = new Stack<Chess>();
 
             BuildTable();
+        }
+        private void PlayWithComputer(object sender, EventArgs e)
+        {
+            Check_pices();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Check_pices();
         }
 
         private void Gameover()
@@ -547,10 +556,7 @@ namespace Game_Caro
             BuildTable();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-           this.PlayWithComputer(sender,e);
-        }
+      
 
         private void PlayVsComputer_Load(object sender, EventArgs e)
         {
@@ -563,6 +569,7 @@ namespace Game_Caro
             {
                 MessageBox.Show("No Internet or Connection Problem");
             }
+            Check_pices();
         }
         #endregion
 
