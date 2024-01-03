@@ -110,12 +110,12 @@ namespace Game_Caro
 
         private void menuQuit_Click_1(object sender, EventArgs e)
         {
-            DialogResult dialog;
-            dialog = MessageBox.Show("Are you sure you want to quit this cute game?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dialog == DialogResult.No)
+            DialogResult r = MessageBox.Show("Are you sure you want to quit this cute game?", "Question?",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question,
+                        MessageBoxDefaultButton.Button1);
+            if (r == DialogResult.Yes)
             {
-                /*this.Dispose();
-                this.Close();*/
                 Application.Exit();
             }
         }
@@ -129,11 +129,8 @@ namespace Game_Caro
             pnl_ChessBoard.Controls.Clear();
 
             picb_IconXO.Image = Properties.Resources.IconO;
-<<<<<<< HEAD
             txtb_Player.Text = Username;
-=======
             txtb_Player.Text = this.Username;
->>>>>>> 9446a27ce6b4d532e33838c44a47a5414b395bfe
             menu.Parent = pnl_ChessBoard;
             player = 1;
             Map = new System.Windows.Forms.Button[rows + 2, columns + 2];
@@ -266,29 +263,17 @@ namespace Game_Caro
                 j--;
             }
 
-            /*FirebaseResponse res = await client.GetAsync(@"Player " + Username);
-            tbPlayer pl= new tbPlayer();
-            Dictionary<string, string> data = JsonConvert.DeserializeObject<Dictionary<string, string>>(res.Body.ToString());
-            pl.Password = data.ElementAt(3).Value;
-            pl.Age = int.Parse(data.ElementAt(0).Value);
-            pl.Fullname = data.ElementAt(1).Value;
-            pl.Username = data.ElementAt(4).Value;*/
-
             if (row >= 5 || column >= 5 || mdiagonal >= 5 || ediagonal >= 5)
             {
                 Gameover();
                 if (player == 1)
                 {
-                    /*pl.Win = int.Parse(data.ElementAt(5).Value)+1;
-                    pl.Lose = int.Parse(data.ElementAt(2).Value);*/
                     MessageBox.Show("You win!!");
                     UpdateWin(this.Username);
 
                 }
                 else
                 {
-                    /*pl.Win = int.Parse(data.ElementAt(5).Value) ;
-                    pl.Lose = int.Parse(data.ElementAt(2).Value)+1;*/
                     MessageBox.Show("You lost!!");
                     UpdateLose(this.Username);
                 }

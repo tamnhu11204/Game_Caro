@@ -53,15 +53,32 @@ namespace Game_Caro
                 return;
             }
             #endregion
+            /*FirebaseResponse res = client.Get(@"Player " + txb_Username.Text);
+            tbPlayer pl1 = res.ResultAs<tbPlayer>();
+            tbPlayer pl2 = new tbPlayer()
+            {
+                Username = txb_Username.Text
+            };*/
+            int i = 0;
 
+            FirebaseResponse res = client.Get(@"Player " + txb_Username.Text);
+
+            if (res.ResultAs<tbPlayer>() == null)
+            {
+                i = 0;
+            }
+            else i = 1;
+
+            if (i==0)
+            {
                 tbPlayer user = new tbPlayer()
                 {
                     Username = txb_Username.Text,
                     Password = txb_Password.Text,
                     Fullname = txb_Fullname.Text,
                     Age = int.Parse(txb_Age.Text),
-                    Win=0,
-                    Lose=0
+                    Win = 0,
+                    Lose = 0
                 };
 
                 SetResponse set = client.Set(@"Player " + txb_Username.Text, user);
@@ -69,11 +86,12 @@ namespace Game_Caro
                 if (set.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     MessageBox.Show($"Successfully registered {txb_Username.Text}!", "Information!");
-                    /*this.Hide();
-                    LogIn l=new LogIn();
-                    l.ShowDialog();
-                    this.Close();*/
                 }
+            }
+            else
+            {
+                tbPlayer.ShowError1();
+            }
 
         }
 
