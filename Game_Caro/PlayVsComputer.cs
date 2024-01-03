@@ -189,7 +189,8 @@ namespace Game_Caro
             {
                 FirebaseResponse res = await client.GetAsync(@"Player " + uname);
                 tbPlayer pl = new tbPlayer();
-                Dictionary<string, string> data = JsonConvert.DeserializeObject<Dictionary<string, string>>(res.Body.ToString());
+                Dictionary<string, string> data = JsonConvert.DeserializeObject
+                    <Dictionary<string, string>>(res.Body.ToString());
                 pl.Password = data.ElementAt(3).Value;
                 pl.Age = int.Parse(data.ElementAt(0).Value);
                 pl.Fullname = data.ElementAt(1).Value;
@@ -210,7 +211,8 @@ namespace Game_Caro
             {
                 FirebaseResponse res = await client.GetAsync(@"Player " + uname);
                 tbPlayer pl = new tbPlayer();
-                Dictionary<string, string> data = JsonConvert.DeserializeObject<Dictionary<string, string>>(res.Body.ToString());
+                Dictionary<string, string> data = JsonConvert.DeserializeObject
+                    <Dictionary<string, string>>(res.Body.ToString());
                 pl.Password = data.ElementAt(3).Value;
                 pl.Age = int.Parse(data.ElementAt(0).Value);
                 pl.Fullname = data.ElementAt(1).Value;

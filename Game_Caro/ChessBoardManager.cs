@@ -179,9 +179,7 @@ namespace Game_Caro
 
             CurrentPlayer= CurrentPlayer ==1 ? 0 : 1;
 
-
             ChangePlayer();
-
 
             if (isEndGame(btn))
             {
