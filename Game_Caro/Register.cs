@@ -41,12 +41,12 @@ namespace Game_Caro
                 MessageBox.Show("No Internet or Connection Problem");
             }
         }
-        private void btn_SignUp_Click(object sender, EventArgs e)
+        private  void btn_SignUp_Click(object sender, EventArgs e)
         {
             #region Condition
-            if (string.IsNullOrWhiteSpace(txb_Username.Text) &&
-                string.IsNullOrWhiteSpace(txb_Password.Text) &&
-                string.IsNullOrWhiteSpace(txb_Fullname.Text) &&
+            if (string.IsNullOrWhiteSpace(txb_Username.Text) ||
+                string.IsNullOrWhiteSpace(txb_Password.Text) ||
+                string.IsNullOrWhiteSpace(txb_Fullname.Text) ||
                 string.IsNullOrWhiteSpace(txb_Age.Text))
             {
                 MessageBox.Show("Please provide all of the required information!");
@@ -54,7 +54,7 @@ namespace Game_Caro
             }
             #endregion
             int i = 0;
-            FirebaseResponse res = client.Get(@"Player " + txb_Username.Text);
+            FirebaseResponse res =  client.Get(@"Player " + txb_Username.Text);
             if (res.ResultAs<tbPlayer>() == null)
             {
                 i = 0;
