@@ -17,6 +17,8 @@ namespace Game_Caro
 {
     public partial class LogIn : Form
     {
+        
+
         public LogIn()
         {
             InitializeComponent();
@@ -64,6 +66,8 @@ namespace Game_Caro
                     Home h = new Home(CurUser.Username);
 
                     h.ShowDialog();
+                    
+                    
                     this.Close();
                 }
                 else 

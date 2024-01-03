@@ -19,6 +19,7 @@ namespace Game_Caro
 {
     public partial class PlayVsComputer : Form
     {
+        public int exit = 0;
         public string Username;
         private System.Windows.Forms.Button[,] Map;
         private static int columns, rows;
@@ -39,11 +40,13 @@ namespace Game_Caro
         private System.Windows.Forms.ProgressBar prcbCoolDown;
         private System.Windows.Forms.TextBox txbPlayerName;
         private System.Windows.Forms.Label label1;
-        public PlayVsComputer(string username)
+        private Home home;
+        public PlayVsComputer(string username, Home home)
         {
             columns = 20;
             rows = 20;
-
+            home= new Home(username);
+            this.home = home;
             vsComputer = false;
             gameover = false;
             player = 1;
@@ -112,7 +115,8 @@ namespace Game_Caro
 
         private void menuQuit_Click_1(object sender, EventArgs e)
         {
-            DialogResult r = MessageBox.Show("Are you sure you want to quit this cute game?", "Question?",
+            exit =1;
+            DialogResult r = MessageBox.Show("Are you sure you want to quit this cute game?", "Confirmation",
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question,
                         MessageBoxDefaultButton.Button1);
@@ -583,19 +587,39 @@ namespace Game_Caro
 
         private void playWithFriendToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Game_Caro game_Caro = new Game_Caro(Username);
+
+            this.Dispose();
+            Game_Caro game_Caro = new Game_Caro(Username,home);
             game_Caro.ShowDialog();
-            this.Close();
+            Application.Exit();
         }
 
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Home h = new Home(Username);
-            h.ShowDialog();
-            this.Close();
+            this.Dispose();
+            home.ShowDialog();
+            Application.Exit();
+
         }
+
+        private void PlayVsComputer_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (exit==0)
+            {
+                DialogResult r = MessageBox.Show("Are you sure you want to quit this cute game?", "Confirmation",
+                              MessageBoxButtons.YesNo,
+                              MessageBoxIcon.Question,
+                              MessageBoxDefaultButton.Button1);
+                if (r == DialogResult.Yes)
+                {
+                    this.Dispose();
+                    home.Dispose();
+                    Application.Exit();
+                }
+            }
+        }
+
+       
 
         public class Chess
         {

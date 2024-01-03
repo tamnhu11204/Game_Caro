@@ -156,7 +156,7 @@
             this.txb_Fullname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txb_Fullname.Name = "txb_Fullname";
             this.txb_Fullname.Size = new System.Drawing.Size(260, 22);
-            this.txb_Fullname.TabIndex = 9;
+            this.txb_Fullname.TabIndex = 10;
             // 
             // txb_Age
             // 
@@ -164,7 +164,7 @@
             this.txb_Age.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txb_Age.Name = "txb_Age";
             this.txb_Age.Size = new System.Drawing.Size(63, 22);
-            this.txb_Age.TabIndex = 10;
+            this.txb_Age.TabIndex = 11;
             // 
             // txb_Password
             // 
@@ -172,7 +172,7 @@
             this.txb_Password.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txb_Password.Name = "txb_Password";
             this.txb_Password.Size = new System.Drawing.Size(260, 22);
-            this.txb_Password.TabIndex = 11;
+            this.txb_Password.TabIndex = 9;
             // 
             // txb_Win
             // 
@@ -199,7 +199,7 @@
             this.btn_PlayGame.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_PlayGame.Name = "btn_PlayGame";
             this.btn_PlayGame.Size = new System.Drawing.Size(125, 34);
-            this.btn_PlayGame.TabIndex = 1;
+            this.btn_PlayGame.TabIndex = 0;
             this.btn_PlayGame.Text = "Play Game";
             this.btn_PlayGame.UseVisualStyleBackColor = true;
             this.btn_PlayGame.Click += new System.EventHandler(this.btn_PlayGame_Click);
@@ -211,7 +211,7 @@
             this.btn_LogOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_LogOut.Name = "btn_LogOut";
             this.btn_LogOut.Size = new System.Drawing.Size(100, 34);
-            this.btn_LogOut.TabIndex = 2;
+            this.btn_LogOut.TabIndex = 1;
             this.btn_LogOut.Text = "Log Out";
             this.btn_LogOut.UseVisualStyleBackColor = true;
             this.btn_LogOut.Click += new System.EventHandler(this.btn_LogOut_Click);
@@ -223,7 +223,7 @@
             this.btn_Update.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Update.Name = "btn_Update";
             this.btn_Update.Size = new System.Drawing.Size(85, 34);
-            this.btn_Update.TabIndex = 3;
+            this.btn_Update.TabIndex = 2;
             this.btn_Update.Text = "Update";
             this.btn_Update.UseVisualStyleBackColor = true;
             this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
@@ -235,7 +235,7 @@
             this.btn_Delete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Delete.Name = "btn_Delete";
             this.btn_Delete.Size = new System.Drawing.Size(79, 34);
-            this.btn_Delete.TabIndex = 4;
+            this.btn_Delete.TabIndex = 3;
             this.btn_Delete.Text = "Delete";
             this.btn_Delete.UseVisualStyleBackColor = true;
             this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);

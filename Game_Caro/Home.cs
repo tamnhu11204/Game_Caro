@@ -17,11 +17,13 @@ namespace Game_Caro
 {
     public partial class Home : Form
     {
-        public string Username;
+        public  string Username;
+        
         public Home(string username)
         {
             InitializeComponent();
             this.Username = username;
+          
             
         }
         IFirebaseConfig config = new FirebaseConfig
@@ -66,10 +68,12 @@ namespace Game_Caro
         }
         private void btn_PlayGame_Click(object sender, EventArgs e)
         {
+
             this.Hide();
-            Game_Caro g=new Game_Caro(txb_Username.Text);
+            Game_Caro g=new Game_Caro(txb_Username.Text, this);
             g.ShowDialog();
-            this.Close();
+            
+           
         }
 
         private void btn_LogOut_Click(object sender, EventArgs e)

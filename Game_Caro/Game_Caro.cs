@@ -18,15 +18,18 @@ using Newtonsoft.Json;
 using Firebase.Database.Query;
 
 namespace Game_Caro
-{
+{ 
     public partial class Game_Caro : Form
     {
+       
         private int flag=0;
+        Home home;
         #region Properties
         public string Username;
         ChessBoardManager ChessBoard;
-
+        
         SocketManager socket;
+        public static int exit = 0;
         IFirebaseConfig config = new FirebaseConfig
         {
             AuthSecret = "ZSYPCgwNgtDZLgNkwTsJyN6Z6tc6IKfG8gJNJL6S",
@@ -34,11 +37,12 @@ namespace Game_Caro
         };
         IFirebaseClient client;
         #endregion
-        public Game_Caro(string username)
+        public Game_Caro(string username, Home home)
         {
             InitializeComponent();
             this.Username = username;
-
+            home= new Home(username);
+            this.home= home;
             Control.CheckForIllegalCrossThreadCalls = false;
             ChessBoard = new ChessBoardManager(pnl_ChessBoard, txtb_Player, picb_IconXO);
             ChessBoard.EndedGame += ChessBoard_EndedGame;
@@ -83,23 +87,14 @@ namespace Game_Caro
 
         void NewGame()
         {
+           
             progressBar.Value = 0;
             timerCountDown.Stop();
             undoToolStripMenuItem.Enabled = true;
             ChessBoard.DrawChessBoard();
         }
 
-        void Quit()
-        {
-            DialogResult r = MessageBox.Show("Are you sure you want to quit this cute game?", "Question?",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question,
-                        MessageBoxDefaultButton.Button1);
-            if (r == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-        }
+       
 
         void Undo()
         {
@@ -134,38 +129,53 @@ namespace Game_Caro
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Quit();
+            
+            exit=1;
+           
+            DialogResult r = MessageBox.Show("Are you sure you want to quit this cute game?", "Confirmation",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question,
+                        MessageBoxDefaultButton.Button1);
+            if (r == DialogResult.Yes)
+            {
+               
+                this.Dispose();
+                home.Dispose();
+                Application.Exit();
+            }
         }
 
         private void Game_Caro_FormClosing(object sender, FormClosingEventArgs e)
         {
-
-
-            if (MessageBox.Show("Are you sure you want to quit this cute game?", "Confirmation", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
+           
+            if (exit==0)
             {
-                e.Cancel = true;
-            }
-            else
-            {
-                if (flag==1)
+                DialogResult dialog = MessageBox.Show("Are you sure you want to quit this cute game?", "Confirmation", MessageBoxButtons.OKCancel);
+                if (dialog == System.Windows.Forms.DialogResult.Cancel)
                 {
-                    try
-                    {
-                        socket.Send(new SocketData((int)SocketCommand.QUIT, "", new Point()));
-                    }
-                    catch
-                    {
-
-                    }
-
+                    e.Cancel = true;
                 }
                 else
                 {
-                    Application.Exit();
-                }
-            }
+                    if (flag==1)
+                    {
+                        try
+                        {
+                            socket.Send(new SocketData((int)SocketCommand.QUIT, "", new Point()));
+                        }
+                        catch
+                        { }
 
-            
+                    }
+                    else
+                    {
+                        this.Dispose();
+                        home.Dispose() ;
+                       
+                    }
+                }
+               
+            } 
         }
 
         private void btn_Connect_Click(object sender, EventArgs e)
@@ -277,20 +287,21 @@ namespace Game_Caro
 
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Home home = new Home(Username);
-            home.ShowDialog();
-            this.Close();
+
+            this.Dispose();
+           home.ShowDialog();
+           Application.Exit();
+
         }
 
         private void playWithComputerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            PlayVsComputer playVsComputer = new PlayVsComputer(Username);
-            playVsComputer.ShowDialog();
-            this.Close();
-            playVsComputer.Check_pices();
 
+            this.Dispose();
+            home.Dispose();
+            PlayVsComputer playVsComputer = new PlayVsComputer(Username, home);
+            playVsComputer.ShowDialog();
+            Application.Exit();
         }
 
         private void Game_Caro_Load(object sender, EventArgs e)

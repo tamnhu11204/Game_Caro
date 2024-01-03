@@ -122,21 +122,22 @@
             this.playWithFriendToolStripMenuItem,
             this.playWithComputerToolStripMenuItem});
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.newGameToolStripMenuItem.Text = "New Game";
             // 
             // playWithFriendToolStripMenuItem
             // 
             this.playWithFriendToolStripMenuItem.Name = "playWithFriendToolStripMenuItem";
             this.playWithFriendToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.playWithFriendToolStripMenuItem.Size = new System.Drawing.Size(247, 26);
+            this.playWithFriendToolStripMenuItem.Size = new System.Drawing.Size(272, 26);
             this.playWithFriendToolStripMenuItem.Text = "Play with friend";
             this.playWithFriendToolStripMenuItem.Click += new System.EventHandler(this.playWithFriendToolStripMenuItem_Click);
             // 
             // playWithComputerToolStripMenuItem
             // 
             this.playWithComputerToolStripMenuItem.Name = "playWithComputerToolStripMenuItem";
-            this.playWithComputerToolStripMenuItem.Size = new System.Drawing.Size(247, 26);
+            this.playWithComputerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
+            this.playWithComputerToolStripMenuItem.Size = new System.Drawing.Size(272, 26);
             this.playWithComputerToolStripMenuItem.Text = "Play with Computer";
             this.playWithComputerToolStripMenuItem.Click += new System.EventHandler(this.PlayWithComputer);
             // 
@@ -144,7 +145,7 @@
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.undoToolStripMenuItem.Text = "Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.menuUndo_Click);
             // 
@@ -152,7 +153,7 @@
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
             this.quitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.menuQuit_Click_1);
             // 
@@ -223,11 +224,12 @@
             this.Controls.Add(this.menu);
             this.Controls.Add(this.pnl_Control);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "PlayVsComputer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PlayVsComputer";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PlayVsComputer_FormClosing);
             this.Load += new System.EventHandler(this.PlayVsComputer_Load);
             this.pnl_Logo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picb_Logo)).EndInit();
