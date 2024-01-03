@@ -21,7 +21,7 @@ namespace Game_Caro
 {
     public partial class Game_Caro : Form
     {
-
+        private int flag=0;
         #region Properties
         public string Username;
         ChessBoardManager ChessBoard;
@@ -139,26 +139,38 @@ namespace Game_Caro
 
         private void Game_Caro_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(MessageBox.Show("Are you sure you want to quit this cute game?", "Confirmation",MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
+
+
+            if (MessageBox.Show("Are you sure you want to quit this cute game?", "Confirmation", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
             {
                 e.Cancel = true;
-            }    
+            }
             else
             {
-                try
+                if (flag==1)
                 {
-                    socket.Send(new SocketData((int)SocketCommand.QUIT, "", new Point()));
-                }
-                catch
-                {
+                    try
+                    {
+                        socket.Send(new SocketData((int)SocketCommand.QUIT, "", new Point()));
+                    }
+                    catch
+                    {
+
+                    }
 
                 }
+                else
+                {
+                    Application.Exit();
+                }
+            }
 
-            }    
+            
         }
 
         private void btn_Connect_Click(object sender, EventArgs e)
         {
+            flag=1;
             socket.IP = txbIP.Text;
 
             if (!socket.ConnectServer())
