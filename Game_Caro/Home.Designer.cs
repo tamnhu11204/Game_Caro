@@ -47,6 +47,7 @@
             this.btn_LogOut = new System.Windows.Forms.Button();
             this.btn_Update = new System.Windows.Forms.Button();
             this.btn_Delete = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_home)).BeginInit();
             this.SuspendLayout();
             // 
@@ -228,11 +229,23 @@
             this.btn_Delete.UseVisualStyleBackColor = true;
             this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Image = global::Game_Caro.Properties.Resources.background_pink;
+            this.label8.Location = new System.Drawing.Point(554, 116);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(156, 29);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "VS Computer";
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.btn_Delete);
             this.Controls.Add(this.btn_Update);
             this.Controls.Add(this.btn_LogOut);
@@ -281,5 +294,6 @@
         private System.Windows.Forms.Button btn_LogOut;
         private System.Windows.Forms.Button btn_Update;
         private System.Windows.Forms.Button btn_Delete;
+        private System.Windows.Forms.Label label8;
     }
 }

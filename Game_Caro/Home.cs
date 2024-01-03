@@ -49,7 +49,8 @@ namespace Game_Caro
             try
             {
                 res = await client.GetAsync(@"Player " + Username);
-                Dictionary<string, string> data = JsonConvert.DeserializeObject<Dictionary<string, string>>(res.Body.ToString());
+                Dictionary<string, string> data = JsonConvert.DeserializeObject
+                    <Dictionary<string, string>>(res.Body.ToString());
                 txb_Password.Text = data.ElementAt(3).Value;
                 txb_Age.Text = data.ElementAt(0).Value;
                 txb_Fullname.Text = data.ElementAt(1).Value;
@@ -139,28 +140,5 @@ namespace Game_Caro
                 MessageBox.Show(ex.Message);
             }
         }
-        /*async void LiveCall()
-{
-txb_Username.Text = Username;
-while(true)
-{
-
-if (txb_Username.Text != null)
-{
-  FirebaseResponse res = await client.GetAsync(@"Player {0}" + txb_Username.Text);
-  tbPlayer pl=res.ResultAs<tbPlayer>();
-  txb_Age.Text=pl.Age.ToString();
-  txb_Fullname.Text=pl.Fullname;
-  txb_Lose.Text=pl.Lose.ToString();
-  txb_Win.Text=pl.Win.ToString();
-  txb_Password.Text=pl.Password;
-
-}
-else
-{
-  MessageBox.Show("Loi");
-}    
-}
-}*/
     }
 }

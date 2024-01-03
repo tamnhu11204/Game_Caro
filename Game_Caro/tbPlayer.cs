@@ -44,20 +44,5 @@ namespace Game_Caro
             }
             return true;
         }
-        public static bool CheckUsername(tbPlayer pl1,tbPlayer pl2)
-        {
-            if(pl1==null|| pl2==null)
-                return false;
-            if (pl1.Username == pl2.Username)
-            {
-                error1= "Username existed! Please use another username.";
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-            return true;
-        }
     }
 }

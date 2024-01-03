@@ -58,7 +58,6 @@ namespace Game_Caro
                     Username =txb_Username.Text,
                     Password =txb_Password.Text
                 };
-
                 if(tbPlayer.IsEqual(ResUser,CurUser))
                 {
                     this.Hide();
@@ -67,7 +66,6 @@ namespace Game_Caro
                     h.ShowDialog();
                     this.Close();
                 }
-
                 else 
                 {
                     tbPlayer.ShowError();
