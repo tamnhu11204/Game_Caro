@@ -129,7 +129,11 @@ namespace Game_Caro
             pnl_ChessBoard.Controls.Clear();
 
             picb_IconXO.Image = Properties.Resources.IconO;
+<<<<<<< HEAD
             txtb_Player.Text = Username;
+=======
+            txtb_Player.Text = this.Username;
+>>>>>>> 9446a27ce6b4d532e33838c44a47a5414b395bfe
             menu.Parent = pnl_ChessBoard;
             player = 1;
             Map = new System.Windows.Forms.Button[rows + 2, columns + 2];
