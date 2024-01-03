@@ -59,7 +59,7 @@
             // 
             this.pnl_ChessBoard.Location = new System.Drawing.Point(0, 46);
             this.pnl_ChessBoard.Name = "pnl_ChessBoard";
-            this.pnl_ChessBoard.Size = new System.Drawing.Size(658, 735);
+            this.pnl_ChessBoard.Size = new System.Drawing.Size(676, 735);
             this.pnl_ChessBoard.TabIndex = 0;
             // 
             // pnl_Logo
@@ -148,7 +148,6 @@
             this.menuToolStripMenuItem});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
-            this.menu.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
             this.menu.Size = new System.Drawing.Size(1034, 33);
             this.menu.TabIndex = 3;
             this.menu.Text = "menuStrip1";

@@ -12,6 +12,6 @@ namespace Game_Caro
         public static int cooldown_step = 10000;
         public static int cooldown_interval = 100;
         public static string nameplayer;
-        public static int edgeChess = 28;
+        public static int edgeChess = 25;
     }
 }

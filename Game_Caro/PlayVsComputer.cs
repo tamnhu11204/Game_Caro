@@ -160,18 +160,43 @@ namespace Game_Caro
             if (player == 1)
             {
                 player = 2;
-                //txtb_Player.Text = "Player2";
+                txtb_Player.Text = "Player2";
                 picb_IconXO.Image = Properties.Resources.IconX;
 
             }
             else
             {
                 player = 1;
-                //txtb_Player.Text = "Player1";
+                txtb_Player.Text = "Player1";
                 picb_IconXO.Image = Properties.Resources.IconO;
             }
         }
-
+        async void UpdateWin(string uname)
+        {
+            FirebaseResponse res = await client.GetAsync(@"Player " + uname);
+            tbPlayer pl = new tbPlayer();
+            Dictionary<string, string> data = JsonConvert.DeserializeObject<Dictionary<string, string>>(res.Body.ToString());
+            pl.Password = data.ElementAt(3).Value;
+            pl.Age = int.Parse(data.ElementAt(0).Value);
+            pl.Fullname = data.ElementAt(1).Value;
+            pl.Username = data.ElementAt(4).Value;
+            pl.Win = int.Parse(data.ElementAt(5).Value)+1;
+            pl.Lose= int.Parse(data.ElementAt(2).Value);
+            var update = await client.UpdateAsync(@"Player " + pl.Username, pl);
+        }
+        async void UpdateLose(string uname)
+        {
+            FirebaseResponse res = await client.GetAsync(@"Player " + uname);
+            tbPlayer pl = new tbPlayer();
+            Dictionary<string, string> data = JsonConvert.DeserializeObject<Dictionary<string, string>>(res.Body.ToString());
+            pl.Password = data.ElementAt(3).Value;
+            pl.Age = int.Parse(data.ElementAt(0).Value);
+            pl.Fullname = data.ElementAt(1).Value;
+            pl.Username = data.ElementAt(4).Value;
+            pl.Win = int.Parse(data.ElementAt(5).Value) ;
+            pl.Lose = int.Parse(data.ElementAt(2).Value)+1;
+            var update = await client.UpdateAsync(@"Player " + pl.Username, pl);
+        }
         private async void Check(int x, int y)
         {
             int i = x - 1, j = y;
@@ -228,30 +253,32 @@ namespace Game_Caro
                 j--;
             }
 
-            FirebaseResponse res = await client.GetAsync(@"Player " + Username);
+            /*FirebaseResponse res = await client.GetAsync(@"Player " + Username);
             tbPlayer pl= new tbPlayer();
             Dictionary<string, string> data = JsonConvert.DeserializeObject<Dictionary<string, string>>(res.Body.ToString());
             pl.Password = data.ElementAt(3).Value;
             pl.Age = int.Parse(data.ElementAt(0).Value);
             pl.Fullname = data.ElementAt(1).Value;
-            pl.Username = data.ElementAt(4).Value;
+            pl.Username = data.ElementAt(4).Value;*/
 
             if (row >= 5 || column >= 5 || mdiagonal >= 5 || ediagonal >= 5)
             {
                 Gameover();
                 if (player == 1)
                 {
-                    pl.Win = int.Parse(data.ElementAt(5).Value)+1;
-                    pl.Lose = int.Parse(data.ElementAt(2).Value);
+                    /*pl.Win = int.Parse(data.ElementAt(5).Value)+1;
+                    pl.Lose = int.Parse(data.ElementAt(2).Value);*/
                     MessageBox.Show("You win!!");
+                    UpdateWin(this.Username);
+
                 }
                 else
                 {
-                    pl.Win = int.Parse(data.ElementAt(5).Value) ;
-                    pl.Lose = int.Parse(data.ElementAt(2).Value)+1;
+                    /*pl.Win = int.Parse(data.ElementAt(5).Value) ;
+                    pl.Lose = int.Parse(data.ElementAt(2).Value)+1;*/
                     MessageBox.Show("You lost!!");
+                    UpdateLose(this.Username);
                 }
-                var update =await client.UpdateAsync(@"Player " + pl.Username, pl);
             }
 
         }
@@ -527,7 +554,7 @@ namespace Game_Caro
 
         private void PlayVsComputer_Load(object sender, EventArgs e)
         {
-            try
+            try                 
             {
                 client = new FireSharp.FirebaseClient(config);
             }

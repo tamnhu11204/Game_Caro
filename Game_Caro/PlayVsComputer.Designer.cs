@@ -58,7 +58,7 @@
             // 
             this.pnl_Logo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_Logo.Controls.Add(this.picb_Logo);
-            this.pnl_Logo.Location = new System.Drawing.Point(879, 95);
+            this.pnl_Logo.Location = new System.Drawing.Point(929, 64);
             this.pnl_Logo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnl_Logo.Name = "pnl_Logo";
             this.pnl_Logo.Size = new System.Drawing.Size(302, 280);
@@ -67,7 +67,7 @@
             // picb_Logo
             // 
             this.picb_Logo.Image = global::Game_Caro.Properties.Resources.LogoCaro;
-            this.picb_Logo.Location = new System.Drawing.Point(0, -2);
+            this.picb_Logo.Location = new System.Drawing.Point(-4, -2);
             this.picb_Logo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picb_Logo.Name = "picb_Logo";
             this.picb_Logo.Size = new System.Drawing.Size(303, 280);
@@ -77,10 +77,10 @@
             // 
             // pnl_ChessBoard
             // 
-            this.pnl_ChessBoard.Location = new System.Drawing.Point(0, 40);
+            this.pnl_ChessBoard.Location = new System.Drawing.Point(12, 35);
             this.pnl_ChessBoard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnl_ChessBoard.Name = "pnl_ChessBoard";
-            this.pnl_ChessBoard.Size = new System.Drawing.Size(824, 774);
+            this.pnl_ChessBoard.Size = new System.Drawing.Size(853, 861);
             this.pnl_ChessBoard.TabIndex = 4;
             this.pnl_ChessBoard.Click += new System.EventHandler(this.pnl_ChessBoard_Click);
             this.pnl_ChessBoard.MouseEnter += new System.EventHandler(this.pnl_ChessBoard_MouseEnter);
@@ -95,7 +95,7 @@
             this.menuToolStripMenuItem});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(1284, 33);
+            this.menu.Size = new System.Drawing.Size(1281, 33);
             this.menu.TabIndex = 11;
             this.menu.Text = "menuStrip1";
             // 
@@ -122,7 +122,7 @@
             this.playWithFriendToolStripMenuItem,
             this.playWithComputerToolStripMenuItem});
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(219, 34);
             this.newGameToolStripMenuItem.Text = "New Game";
             // 
             // playWithFriendToolStripMenuItem
@@ -144,7 +144,7 @@
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(219, 34);
             this.undoToolStripMenuItem.Text = "Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.menuUndo_Click);
             // 
@@ -152,7 +152,7 @@
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
             this.quitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(219, 34);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.menuQuit_Click_1);
             // 
@@ -164,7 +164,7 @@
             this.pnl_Control.Controls.Add(this.picb_IconXO);
             this.pnl_Control.Controls.Add(this.progressBar);
             this.pnl_Control.Controls.Add(this.txtb_Player);
-            this.pnl_Control.Location = new System.Drawing.Point(874, 401);
+            this.pnl_Control.Location = new System.Drawing.Point(929, 478);
             this.pnl_Control.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnl_Control.Name = "pnl_Control";
             this.pnl_Control.Size = new System.Drawing.Size(303, 299);
@@ -218,7 +218,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 831);
+            this.ClientSize = new System.Drawing.Size(1281, 907);
             this.Controls.Add(this.pnl_Logo);
             this.Controls.Add(this.pnl_ChessBoard);
             this.Controls.Add(this.menu);
