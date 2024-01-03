@@ -91,6 +91,11 @@ namespace Game_Caro
             l.ShowDialog();
             this.Close();
         }
+
+        private void btn_SignUp_MouseEnter(object sender, EventArgs e)
+        {
+            this.btn_Exit_Click(sender, e);
+        }
     }
 }
 

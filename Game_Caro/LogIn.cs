@@ -79,5 +79,10 @@ namespace Game_Caro
             register.ShowDialog();
             this.Close();
         }
+
+        private void btn_LogIn_MouseEnter(object sender, EventArgs e)
+        {
+            this.btn_LogIn_Click(sender,e);
+        }
     }
 }
