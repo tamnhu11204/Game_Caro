@@ -93,7 +93,8 @@ namespace Game_Caro
             {
                 FirebaseResponse res = await client.GetAsync(@"Player " + Username);
                 tbPlayer pl = new tbPlayer();
-                Dictionary<string, string> data = JsonConvert.DeserializeObject<Dictionary<string, string>>(res.Body.ToString());
+                Dictionary<string, string> data = JsonConvert.DeserializeObject
+                    <Dictionary<string, string>>(res.Body.ToString());
                 pl.Password = txb_Password.Text;
                 pl.Age = int.Parse(txb_Age.Text);
                 pl.Fullname = txb_Fullname.Text;
@@ -115,7 +116,8 @@ namespace Game_Caro
             {
                 FirebaseResponse res = await client.GetAsync(@"Player " + Username);
                 tbPlayer pl = new tbPlayer();
-                Dictionary<string, string> data = JsonConvert.DeserializeObject<Dictionary<string, string>>(res.Body.ToString());
+                Dictionary<string, string> data = JsonConvert.DeserializeObject
+                    <Dictionary<string, string>>(res.Body.ToString());
                 pl.Password = txb_Password.Text;
                 pl.Age = int.Parse(txb_Age.Text);
                 pl.Fullname = txb_Fullname.Text;
@@ -124,7 +126,8 @@ namespace Game_Caro
                 pl.Lose = int.Parse(data.ElementAt(2).Value);
 
                 DialogResult dialog;
-                dialog = MessageBox.Show("Are you sure you want to delete this account ?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                dialog = MessageBox.Show("Are you sure you want to delete this account ?", 
+                    "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialog == DialogResult.Yes)
                 {
                     var delete = await client.DeleteAsync(@"Player " + pl.Username);

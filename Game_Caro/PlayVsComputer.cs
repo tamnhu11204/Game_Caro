@@ -56,12 +56,14 @@ namespace Game_Caro
 
             BuildTable();
         }
+
         IFirebaseConfig config = new FirebaseConfig
         {
             AuthSecret = "ZSYPCgwNgtDZLgNkwTsJyN6Z6tc6IKfG8gJNJL6S",
             BasePath = "https://game-caro-f1c0c-default-rtdb.firebaseio.com/"
         };
         IFirebaseClient client;
+
         private void BuildTable()
         {
             for (int i = 2; i <= rows; i++)
@@ -183,31 +185,46 @@ namespace Game_Caro
         }
         async void UpdateWin(string uname)
         {
-            FirebaseResponse res = await client.GetAsync(@"Player " + uname);
-            tbPlayer pl = new tbPlayer();
-            Dictionary<string, string> data = JsonConvert.DeserializeObject<Dictionary<string, string>>(res.Body.ToString());
-            pl.Password = data.ElementAt(3).Value;
-            pl.Age = int.Parse(data.ElementAt(0).Value);
-            pl.Fullname = data.ElementAt(1).Value;
-            pl.Username = data.ElementAt(4).Value;
-            pl.Win = int.Parse(data.ElementAt(5).Value)+1;
-            pl.Lose= int.Parse(data.ElementAt(2).Value);
-            var update = await client.UpdateAsync(@"Player " + pl.Username, pl);
+            try
+            {
+                FirebaseResponse res = await client.GetAsync(@"Player " + uname);
+                tbPlayer pl = new tbPlayer();
+                Dictionary<string, string> data = JsonConvert.DeserializeObject<Dictionary<string, string>>(res.Body.ToString());
+                pl.Password = data.ElementAt(3).Value;
+                pl.Age = int.Parse(data.ElementAt(0).Value);
+                pl.Fullname = data.ElementAt(1).Value;
+                pl.Username = data.ElementAt(4).Value;
+                pl.Win = int.Parse(data.ElementAt(5).Value) + 1;
+                pl.Lose = int.Parse(data.ElementAt(2).Value);
+                var update = await client.UpdateAsync(@"Player " + pl.Username, pl);
+            }
+            catch(Exception) 
+            {
+                MessageBox.Show("Error!");
+            }
+            
         }
         async void UpdateLose(string uname)
         {
-            FirebaseResponse res = await client.GetAsync(@"Player " + uname);
-            tbPlayer pl = new tbPlayer();
-            Dictionary<string, string> data = JsonConvert.DeserializeObject<Dictionary<string, string>>(res.Body.ToString());
-            pl.Password = data.ElementAt(3).Value;
-            pl.Age = int.Parse(data.ElementAt(0).Value);
-            pl.Fullname = data.ElementAt(1).Value;
-            pl.Username = data.ElementAt(4).Value;
-            pl.Win = int.Parse(data.ElementAt(5).Value) ;
-            pl.Lose = int.Parse(data.ElementAt(2).Value)+1;
-            var update = await client.UpdateAsync(@"Player " + pl.Username, pl);
+            try
+            {
+                FirebaseResponse res = await client.GetAsync(@"Player " + uname);
+                tbPlayer pl = new tbPlayer();
+                Dictionary<string, string> data = JsonConvert.DeserializeObject<Dictionary<string, string>>(res.Body.ToString());
+                pl.Password = data.ElementAt(3).Value;
+                pl.Age = int.Parse(data.ElementAt(0).Value);
+                pl.Fullname = data.ElementAt(1).Value;
+                pl.Username = data.ElementAt(4).Value;
+                pl.Win = int.Parse(data.ElementAt(5).Value);
+                pl.Lose = int.Parse(data.ElementAt(2).Value) + 1;
+                var update = await client.UpdateAsync(@"Player " + pl.Username, pl);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error!");
+            }
         }
-        private async void Check(int x, int y)
+        private void Check(int x, int y)
         {
             int i = x - 1, j = y;
             int column = 1, row = 1, mdiagonal = 1, ediagonal = 1;

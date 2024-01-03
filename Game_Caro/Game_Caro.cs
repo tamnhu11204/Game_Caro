@@ -61,7 +61,6 @@ namespace Game_Caro
             timerCountDown.Stop();
             pnl_ChessBoard.Enabled = false;
             undoToolStripMenuItem.Enabled = false;
-            //MessageBox.Show("End game!!!");
         }
         void ChessBoard_PlayerMarked(object sender,ButtonCLickEvent e)
         {
