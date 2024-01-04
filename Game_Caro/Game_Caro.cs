@@ -138,10 +138,19 @@ namespace Game_Caro
                         MessageBoxDefaultButton.Button1);
             if (r == DialogResult.Yes)
             {
-               
-                this.Dispose();
-                home.Dispose();
-                Application.Exit();
+
+                
+
+                try
+                {
+                    socket.Send(new SocketData((int)SocketCommand.QUIT, "", new Point()));
+                    this.Dispose();
+                    home.Dispose();
+                    Application.Exit();
+                }
+                catch
+                { }
+              
             }
         }
 
@@ -296,7 +305,7 @@ namespace Game_Caro
 
         private void playWithComputerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            
             this.Dispose();
             home.Dispose();
             PlayVsComputer playVsComputer = new PlayVsComputer(Username, home);
